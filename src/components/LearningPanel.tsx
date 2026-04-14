@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import { LearningSnapshot } from "../stages/types";
 import { Sparkline } from "./Sparkline";
 
@@ -17,8 +18,19 @@ function formatTime(ts: number): string {
 // ── Mini area chart ────────────────────────────────────────────────────────────
 
 function WeightChart({ history }: { history: WeightPoint[] }) {
-  const W = 600;
-  const H = 52;
+  const W       = 600;
+  const H       = 52;
+  const clipRef = useRef<SVGRectElement>(null);
+
+  // Draw-in animation: clip rect expands L→R on every mount (triggered by parent key change)
+  useEffect(() => {
+    if (!clipRef.current) return;
+    gsap.fromTo(
+      clipRef.current,
+      { attr: { width: 0 } },
+      { attr: { width: W }, duration: 0.55, ease: "power2.out" },
+    );
+  }, []);
 
   if (history.length < 2) {
     return (
@@ -59,7 +71,7 @@ function WeightChart({ history }: { history: WeightPoint[] }) {
   const nPath = smooth(pts(nVals));
 
   // Y-axis ticks
-  const ticks = 3;
+  const ticks  = 3;
   const yTicks = Array.from({ length: ticks }, (_, i) => {
     const v = min + (max - min) * (i / (ticks - 1));
     const y = H - 4 - ((v - min) / range) * (H - 10);
@@ -92,30 +104,37 @@ function WeightChart({ history }: { history: WeightPoint[] }) {
               <stop offset="0%"   stopColor="#22c55e" stopOpacity="0.12" />
               <stop offset="100%" stopColor="#22c55e" stopOpacity="0"    />
             </linearGradient>
+            {/* Clip rect animated L→R on every new data point */}
+            <clipPath id="wc-clip">
+              <rect ref={clipRef} x="0" y="-4" height={H + 8} width={0} />
+            </clipPath>
           </defs>
 
-          {/* Grid */}
+          {/* Grid (unclipped) */}
           {yTicks.map(({ y }) => (
             <line key={y} x1={0} y1={y} x2={W} y2={y} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           ))}
 
-          {/* Fills */}
-          <path d={`${uPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-u)" />
-          <path d={`${nPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-n)" />
+          {/* Chart content — clipped so it draws in L→R */}
+          <g clipPath="url(#wc-clip)">
+            {/* Fills */}
+            <path d={`${uPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-u)" />
+            <path d={`${nPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-n)" />
 
-          {/* Lines */}
-          <path d={uPath} fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
-          <path d={nPath} fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" />
+            {/* Lines */}
+            <path d={uPath} fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
+            <path d={nPath} fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" />
 
-          {/* End dots */}
-          {[
-            { vals: uVals, color: "#6366f1" },
-            { vals: nVals, color: "#22c55e" },
-          ].map(({ vals, color }) => {
-            const last = vals[vals.length - 1];
-            const y    = H - 4 - ((last - min) / range) * (H - 10);
-            return <circle key={color} cx={W} cy={y} r={2.5} fill={color} />;
-          })}
+            {/* End dots */}
+            {[
+              { vals: uVals, color: "#6366f1" },
+              { vals: nVals, color: "#22c55e" },
+            ].map(({ vals, color }) => {
+              const last = vals[vals.length - 1];
+              const y    = H - 4 - ((last - min) / range) * (H - 10);
+              return <circle key={color} cx={W} cy={y} r={2.5} fill={color} />;
+            })}
+          </g>
         </svg>
 
         {/* Legend */}
@@ -135,7 +154,7 @@ function WeightChart({ history }: { history: WeightPoint[] }) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 export function LearningPanel({ learning, weightHistory }: Props) {
-  const rowRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);  // kept for potential future GSAP use
   const netDelta = Object.values(learning.delta).reduce((s, v) => s + (v ?? 0), 0);
   const trend = netDelta > 0.001 ? { label: "improving", color: "#22c55e" }
               : netDelta < -0.001 ? { label: "declining", color: "#ef4444" }
@@ -219,8 +238,7 @@ export function LearningPanel({ learning, weightHistory }: Props) {
 
           return (
             <div
-              key={String(key)}
-              ref={rowRef}
+              key={`${String(key)}-${weightHistory.length}`}
               style={{
                 display: "grid",
                 gridTemplateColumns: "140px 1fr 1fr 72px 1fr",

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { DecisionPanel }    from "./DecisionPanel";
 import { BehaviorPanel }    from "./BehaviorPanel";
@@ -47,13 +47,33 @@ function Dashboard({ onBack }: { onBack: () => void }) {
   const [result,        setResult]        = useState<RunResult | null>(null);
   const [weightHistory, setWeightHistory] = useState<WeightPoint[]>([]);
   const [running,       setRunning]       = useState(false);
-  const runCount = useRef(0);
-  const runRef   = useRef<HTMLSpanElement>(null);
+  const [computing,     setComputing]     = useState(false);
+  const pendingRef = useRef<RunResult | null>(null);
+  const runCount   = useRef(0);
+  const runRef     = useRef<HTMLSpanElement>(null);
 
   function bumpRun() {
     if (!runRef.current) return;
     gsap.from(runRef.current, { y: -6, opacity: 0, duration: 0.2, ease: "power2.out" });
   }
+
+  // Called by PipelineViz after its L→R animation completes
+  const handleComputeComplete = useCallback(() => {
+    const r = pendingRef.current;
+    if (!r) return;
+    setWeightHistory(prev => [
+      ...prev,
+      {
+        showUpsell: r.learning.weights["show-upsell"] ?? 1,
+        doNothing:  r.learning.weights["do-nothing"]  ?? 1,
+      },
+    ]);
+    setResult(r);
+    setComputing(false);
+    pendingRef.current = null;
+    runCount.current += 1;
+    bumpRun();
+  }, []);
 
   const run = () => {
     setRunning(true);
@@ -90,23 +110,15 @@ function Dashboard({ onBack }: { onBack: () => void }) {
 
       const learning = pipeline.getLearning();
 
-      setWeightHistory(prev => [
-        ...prev,
-        {
-          showUpsell: learning.weights["show-upsell"] ?? 1,
-          doNothing:  learning.weights["do-nothing"]  ?? 1,
-        },
-      ]);
-
-      setResult({
+      // Store result and trigger the pipeline animation sequence.
+      // handleComputeComplete will call setResult after the animation finishes.
+      pendingRef.current = {
         action, learning,
         profile:      capturedProfile,
         decision:     capturedDecision,
         intervention: capturedIntervention,
-      });
-
-      runCount.current += 1;
-      bumpRun();
+      };
+      setComputing(true);
     } catch (err) {
       console.error("[Reflex] Pipeline error:", err);
       bus.off("profile:computed",        onProfile);
@@ -119,6 +131,10 @@ function Dashboard({ onBack }: { onBack: () => void }) {
 
   const handleAccept  = () => { if (!result) return; tracker.track("click",   "positive", result.action.action); setTimeout(run, 280); };
   const handleDismiss = () => { if (!result) return; tracker.track("dismiss", "negative", result.action.action); setTimeout(run, 280); };
+
+  // PipelineViz needs data during the computing phase (before result is committed).
+  // Use pending data when available, fall back to committed result.
+  const vizData = (computing && pendingRef.current) ? pendingRef.current : result;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
@@ -191,50 +207,70 @@ function Dashboard({ onBack }: { onBack: () => void }) {
 
       {/* ── Body ──────────────────────────────────────────────── */}
       <div style={{ maxWidth: 1020, margin: "0 auto", padding: "24px 24px 80px" }}>
-        {!result ? (
+        {!vizData ? (
           <EmptyState onRun={run} />
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 
-            {/* Row 1: Decision (main) + sidebar */}
+            {/* Row 1: Decision (main) + sidebar — dim while pipeline is computing */}
             <div style={{
               display: "grid",
               gridTemplateColumns: "1fr 256px",
               gap: 10,
               alignItems: "start",
+              opacity: computing ? 0.38 : 1,
+              transition: "opacity 250ms ease",
+              pointerEvents: computing ? "none" : "auto",
             }}>
               <DecisionPanel
-                decision={result.decision}
-                profile={result.profile}
+                decision={vizData.decision}
+                profile={vizData.profile}
                 runCount={runCount.current}
                 onAccept={handleAccept}
                 onDismiss={handleDismiss}
                 onRerun={run}
               />
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <BehaviorPanel profile={result.profile} />
-                <InterventionPanel intervention={result.intervention} />
+                <BehaviorPanel profile={vizData.profile} />
+                <InterventionPanel intervention={vizData.intervention} />
               </div>
             </div>
 
-            {/* Row 2: Pipeline visualization */}
+            {/* Row 2: Pipeline visualization — animates L→R during computing */}
             <PipelineViz
               key={runCount.current}
               runKey={runCount.current}
-              profile={result.profile}
-              decision={result.decision}
-              intervention={result.intervention}
-              action={result.action}
+              computing={computing}
+              onComputeComplete={handleComputeComplete}
+              profile={vizData.profile}
+              decision={vizData.decision}
+              intervention={vizData.intervention}
+              action={vizData.action}
             />
 
-            {/* Row 3: Learning */}
-            <LearningPanel
-              learning={result.learning}
-              weightHistory={weightHistory}
-            />
+            {/* Row 3: Learning — dim while computing */}
+            {result && (
+              <div style={{
+                opacity: computing ? 0.38 : 1,
+                transition: "opacity 250ms ease",
+              }}>
+                <LearningPanel
+                  key={weightHistory.length}
+                  learning={result.learning}
+                  weightHistory={weightHistory}
+                />
+              </div>
+            )}
 
             {/* Row 4: Simulation benchmark */}
-            <SimulationPanel />
+            {result && (
+              <div style={{
+                opacity: computing ? 0.38 : 1,
+                transition: "opacity 250ms ease",
+              }}>
+                <SimulationPanel />
+              </div>
+            )}
 
           </div>
         )}
