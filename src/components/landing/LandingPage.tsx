@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "../../hooks/useLenis";
 import { useCountUp } from "../../hooks/useCountUp";
 import { Badge, Button } from "../ui";
+import { ArchitectureSection } from "./ArchitectureSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -582,6 +583,7 @@ export function LandingPage({ onLaunch }: { onLaunch: () => void }) {
         <Hero onLaunch={onLaunch} />
         <DemoPreview />
         <HowItWorks />
+        <ArchitectureSection />
         <SystemIntelligence />
         <FinalCTA onLaunch={onLaunch} />
       </div>

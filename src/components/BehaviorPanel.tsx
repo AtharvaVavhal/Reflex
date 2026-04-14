@@ -1,54 +1,46 @@
 import { UserProfile } from "../stages/types";
-import { Card, SectionLabel } from "./ui";
 
-type Props = {
-  profile: UserProfile;
+type Props = { profile: UserProfile };
+
+type Metric = {
+  key:    string;
+  label:  string;
+  value:  number;
+  invert: boolean;
 };
 
-type MetricRowProps = {
-  label: string;
-  value: number;
-  invert?: boolean;
-};
-
-function getColor(pct: number, invert: boolean): string {
-  const isHigh = pct >= 70;
-  const isLow  = pct < 40;
-  if (invert) return isHigh ? "#ef4444" : isLow ? "#22c55e" : "#f59e0b";
-  return isHigh ? "#22c55e" : isLow ? "#ef4444" : "#f59e0b";
+function segColor(pct: number, invert: boolean): string {
+  if (invert) return pct >= 65 ? "#ef4444" : pct <= 35 ? "#22c55e" : "#f59e0b";
+  return          pct >= 65 ? "#22c55e" : pct <= 35 ? "#ef4444" : "#f59e0b";
 }
 
-function getLabel(pct: number, invert: boolean): string {
-  const isHigh = pct >= 70;
-  const isLow  = pct < 40;
-  if (invert) return isHigh ? "High" : isLow ? "Low" : "Medium";
-  return isHigh ? "High" : isLow ? "Low" : "Medium";
+function segLabel(pct: number, invert: boolean): string {
+  if (invert) return pct >= 65 ? "High" : pct <= 35 ? "Low" : "Mid";
+  return          pct >= 65 ? "High" : pct <= 35 ? "Low" : "Mid";
 }
 
-function MetricRow({ label, value, invert = false }: MetricRowProps) {
+function MetricRow({ label, value, invert }: Metric) {
   const pct   = Math.round(value * 100);
-  const color = getColor(pct, invert);
-  const qual  = getLabel(pct, invert);
+  const color = segColor(pct, invert);
 
   return (
-    <div style={{ marginBottom: 18 }}>
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "baseline",
-        marginBottom: 8,
-      }}>
-        <span style={{ fontSize: 12, fontWeight: 500, color: "#a1a1aa" }}>{label}</span>
+    <div style={{ paddingBottom: 12, marginBottom: 12, borderBottom: "1px solid var(--border)" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 7 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t4)" }}>
+          {label}
+        </span>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontSize: 11, fontWeight: 700, color, letterSpacing: "0.03em" }}>{qual}</span>
-          <span style={{ fontSize: 11, color: "#3f3f46", fontFamily: "var(--font-mono)" }}>{pct}%</span>
+          <span style={{ fontSize: 10, fontWeight: 700, color, letterSpacing: "0.04em" }}>
+            {segLabel(pct, invert)}
+          </span>
+          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--t2)", fontFamily: "var(--font-mono)", minWidth: 30, textAlign: "right" }}>
+            {pct}%
+          </span>
         </div>
       </div>
-      <div style={{ height: 3, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
+      <div style={{ height: 2, background: "rgba(255,255,255,0.05)", borderRadius: 1, overflow: "hidden" }}>
         <div style={{
-          height: "100%",
-          width: `${pct}%`,
-          background: color,
-          borderRadius: 2,
-          opacity: 0.8,
+          height: "100%", width: `${pct}%`, background: color, borderRadius: 1,
           transition: "width 500ms cubic-bezier(0.4,0,0.2,1)",
         }} />
       </div>
@@ -57,12 +49,38 @@ function MetricRow({ label, value, invert = false }: MetricRowProps) {
 }
 
 export function BehaviorPanel({ profile }: Props) {
+  const metrics: Metric[] = [
+    { key: "engagement",  label: "Engagement",  value: profile.engagement,  invert: false },
+    { key: "churn",       label: "Churn risk",  value: profile.churnRisk,   invert: true  },
+    { key: "impulsivity", label: "Impulsivity", value: profile.impulsivity, invert: false },
+  ];
+
   return (
-    <Card style={{ padding: "18px 20px" }}>
-      <SectionLabel style={{ marginBottom: 20 }}>Behavior</SectionLabel>
-      <MetricRow label="Engagement"  value={profile.engagement}  />
-      <MetricRow label="Churn risk"  value={profile.churnRisk}  invert />
-      <MetricRow label="Impulsivity" value={profile.impulsivity} />
-    </Card>
+    <div style={{
+      background: "var(--surface-2)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--r-lg)",
+      padding: "16px 18px",
+    }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--t4)" }}>
+          Behavior
+        </span>
+        <span style={{
+          fontSize: 9, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
+          padding: "2px 7px", borderRadius: 4,
+          background: "rgba(255,255,255,0.04)", border: "1px solid var(--border)",
+          color: "var(--t5)",
+        }}>
+          {profile.cohort.replace("_", " ")}
+        </span>
+      </div>
+
+      {metrics.map((m, i) => (
+        <div key={m.key} style={i === metrics.length - 1 ? { borderBottom: "none" } : {}}>
+          <MetricRow {...m} />
+        </div>
+      ))}
+    </div>
   );
 }

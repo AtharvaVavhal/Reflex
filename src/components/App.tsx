@@ -5,6 +5,7 @@ import { BehaviorPanel }    from "./BehaviorPanel";
 import { InterventionPanel } from "./InterventionPanel";
 import { PipelineViz }      from "./PipelineViz";
 import { LearningPanel }    from "./LearningPanel";
+import { SimulationPanel }  from "./SimulationPanel";
 import { LandingPage }      from "./landing/LandingPage";
 import { Pipeline }         from "../core/pipeline";
 import { EventBus }         from "../core/event-bus";
@@ -40,19 +41,18 @@ type RunResult = {
 type WeightPoint = { showUpsell: number; doNothing: number };
 type View        = "landing" | "dashboard";
 
-// ─── Dashboard ────────────────────────────────────────────────────────────────
+// ── Dashboard ──────────────────────────────────────────────────────────────────
 
 function Dashboard({ onBack }: { onBack: () => void }) {
   const [result,        setResult]        = useState<RunResult | null>(null);
   const [weightHistory, setWeightHistory] = useState<WeightPoint[]>([]);
   const [running,       setRunning]       = useState(false);
   const runCount = useRef(0);
-  const runLabel = useRef<HTMLSpanElement>(null);
+  const runRef   = useRef<HTMLSpanElement>(null);
 
-  // Animate run counter increment
-  function bumpRunLabel() {
-    if (!runLabel.current) return;
-    gsap.from(runLabel.current, { y: -8, opacity: 0, duration: 0.25, ease: "power2.out" });
+  function bumpRun() {
+    if (!runRef.current) return;
+    gsap.from(runRef.current, { y: -6, opacity: 0, duration: 0.2, ease: "power2.out" });
   }
 
   const run = () => {
@@ -90,20 +90,23 @@ function Dashboard({ onBack }: { onBack: () => void }) {
 
       const learning = pipeline.getLearning();
 
-      setWeightHistory(prev => [...prev, {
-        showUpsell: learning.weights["show-upsell"] ?? 1,
-        doNothing:  learning.weights["do-nothing"]  ?? 1,
-      }]);
+      setWeightHistory(prev => [
+        ...prev,
+        {
+          showUpsell: learning.weights["show-upsell"] ?? 1,
+          doNothing:  learning.weights["do-nothing"]  ?? 1,
+        },
+      ]);
 
       setResult({
-        action, profile: capturedProfile,
-        decision: capturedDecision,
+        action, learning,
+        profile:      capturedProfile,
+        decision:     capturedDecision,
         intervention: capturedIntervention,
-        learning,
       });
 
       runCount.current += 1;
-      bumpRunLabel();
+      bumpRun();
     } catch (err) {
       console.error("[Reflex] Pipeline error:", err);
       bus.off("profile:computed",        onProfile);
@@ -114,137 +117,107 @@ function Dashboard({ onBack }: { onBack: () => void }) {
     }
   };
 
-  const handleAccept = () => {
-    if (!result) return;
-    tracker.track("click", "positive", result.action.action);
-    setTimeout(run, 280);
-  };
-
-  const handleDismiss = () => {
-    if (!result) return;
-    tracker.track("dismiss", "negative", result.action.action);
-    setTimeout(run, 280);
-  };
+  const handleAccept  = () => { if (!result) return; tracker.track("click",   "positive", result.action.action); setTimeout(run, 280); };
+  const handleDismiss = () => { if (!result) return; tracker.track("dismiss", "negative", result.action.action); setTimeout(run, 280); };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#09090b" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
 
-      {/* ── Nav ─────────────────────────────────────────────────── */}
+      {/* ── Nav ───────────────────────────────────────────────── */}
       <header style={{
         position: "sticky", top: 0, zIndex: 50,
-        background: "rgba(9,9,11,0.9)",
-        backdropFilter: "blur(16px) saturate(180%)",
-        borderBottom: "1px solid rgba(255,255,255,0.055)",
+        background: "rgba(9,9,11,0.92)",
+        backdropFilter: "blur(20px) saturate(160%)",
+        borderBottom: "1px solid var(--border)",
         padding: "0 24px",
-        height: 50,
+        height: 48,
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        {/* Left */}
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <button
             onClick={onBack}
             style={{
               background: "none", border: "none", cursor: "pointer",
-              color: "#3f3f46", fontSize: 11, fontFamily: "inherit",
+              color: "var(--t5)", fontSize: 11, fontFamily: "inherit",
               display: "flex", alignItems: "center", gap: 5, padding: 0,
-              letterSpacing: "0.03em",
+              letterSpacing: "0.02em",
             }}
           >
             <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
-            Back
           </button>
 
-          <div style={{ width: 1, height: 14, background: "rgba(255,255,255,0.07)" }} />
+          <div style={{ width: 1, height: 14, background: "var(--border)" }} />
 
-          <span style={{
-            fontSize: 12, fontWeight: 800, letterSpacing: "0.12em",
-            textTransform: "uppercase", color: "#e4e4e7",
-          }}>
+          <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--t1)" }}>
             Reflex
           </span>
-
-          <div style={{
-            fontSize: 11, color: "#3f3f46",
-            padding: "2px 8px", borderRadius: 4,
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.06)",
-          }}>
-            dashboard
-          </div>
+          <span style={{ fontSize: 10, color: "var(--t5)", letterSpacing: "0.06em" }}>
+            / dashboard
+          </span>
         </div>
 
-        {/* Right */}
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          {/* Live indicator */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <div style={{
-              width: 6, height: 6, borderRadius: "50%",
+              width: 5, height: 5, borderRadius: "50%",
               background: running ? "#f59e0b" : "#22c55e",
               animation: "pulse-live 2s ease-in-out infinite",
             }} />
-            <span style={{ fontSize: 11, color: "#3f3f46", fontFamily: "var(--font-mono)" }}>
-              run&nbsp;<span ref={runLabel}>{runCount.current}</span>
+            <span style={{ fontSize: 10, color: "var(--t5)", fontFamily: "var(--font-mono)" }}>
+              run <span ref={runRef}>{runCount.current}</span>
             </span>
           </div>
 
-          <div style={{ width: 1, height: 14, background: "rgba(255,255,255,0.07)" }} />
+          <div style={{ width: 1, height: 14, background: "var(--border)" }} />
 
           <button
+            className="btn-primary"
             onClick={run}
             disabled={running}
-            style={{
-              background: running ? "rgba(99,102,241,0.4)" : "#6366f1",
-              color: "#fff", border: "none",
-              padding: "5px 14px", borderRadius: 7, fontSize: 11,
-              fontWeight: 700, cursor: running ? "default" : "pointer",
-              fontFamily: "inherit", letterSpacing: "0.04em",
-              transition: "background 150ms",
-              display: "flex", alignItems: "center", gap: 6,
-            }}
+            style={{ fontSize: 11, padding: "5px 14px" }}
           >
-            {running && (
+            {running ? (
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                style={{ animation: "spin-slow 0.8s linear infinite" }}>
-                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" strokeLinecap="round" />
+                style={{ animation: "spin-slow 0.7s linear infinite" }}>
+                <path strokeLinecap="round" d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
               </svg>
-            )}
-            {running ? "Running…" : "Run pipeline"}
+            ) : null}
+            {running ? "Running" : "Run pipeline"}
           </button>
         </div>
       </header>
 
-      {/* ── Body ─────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: 980, margin: "0 auto", padding: "28px 24px 80px" }}>
+      {/* ── Body ──────────────────────────────────────────────── */}
+      <div style={{ maxWidth: 1020, margin: "0 auto", padding: "24px 24px 80px" }}>
         {!result ? (
           <EmptyState onRun={run} />
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 
-            {/* Decision + sidebar */}
+            {/* Row 1: Decision (main) + sidebar */}
             <div style={{
               display: "grid",
-              gridTemplateColumns: "1fr 280px",
-              gap: 12,
+              gridTemplateColumns: "1fr 256px",
+              gap: 10,
               alignItems: "start",
             }}>
               <DecisionPanel
                 decision={result.decision}
+                profile={result.profile}
                 runCount={runCount.current}
                 onAccept={handleAccept}
                 onDismiss={handleDismiss}
                 onRerun={run}
               />
-
-              {/* Sidebar: Behavior + Intervention stacked */}
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <BehaviorPanel profile={result.profile} />
                 <InterventionPanel intervention={result.intervention} />
               </div>
             </div>
 
-            {/* Pipeline viz — full width */}
+            {/* Row 2: Pipeline visualization */}
             <PipelineViz
               key={runCount.current}
               runKey={runCount.current}
@@ -254,11 +227,15 @@ function Dashboard({ onBack }: { onBack: () => void }) {
               action={result.action}
             />
 
-            {/* Learning — full width with history */}
+            {/* Row 3: Learning */}
             <LearningPanel
               learning={result.learning}
               weightHistory={weightHistory}
             />
+
+            {/* Row 4: Simulation benchmark */}
+            <SimulationPanel />
+
           </div>
         )}
       </div>
@@ -266,14 +243,14 @@ function Dashboard({ onBack }: { onBack: () => void }) {
   );
 }
 
-// ─── Empty state ──────────────────────────────────────────────────────────────
+// ── Empty state ────────────────────────────────────────────────────────────────
 
 function EmptyState({ onRun }: { onRun: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(ref.current, { y: 24, opacity: 0, duration: 0.7, ease: "power3.out", delay: 0.15 });
+      gsap.from(ref.current, { y: 20, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.1 });
     });
     return () => ctx.revert();
   }, []);
@@ -283,46 +260,44 @@ function EmptyState({ onRun }: { onRun: () => void }) {
       ref={ref}
       style={{
         display: "flex", flexDirection: "column", alignItems: "center",
-        justifyContent: "center", minHeight: "62vh", textAlign: "center",
+        justifyContent: "center", minHeight: "64vh", textAlign: "center",
+        userSelect: "none",
       }}
     >
-      {/* Concentric rings */}
-      <div style={{ position: "relative", width: 72, height: 72, marginBottom: 28 }}>
-        {[72, 52, 34].map((size, i) => (
+      {/* Orb */}
+      <div style={{ position: "relative", width: 80, height: 80, marginBottom: 28 }}>
+        {[80, 58, 40].map((size, i) => (
           <div key={size} style={{
             position: "absolute",
-            top: (72 - size) / 2, left: (72 - size) / 2,
-            width: size, height: size, borderRadius: "50%",
-            border: `1px solid rgba(99,102,241,${0.15 - i * 0.04})`,
-            background: i === 2 ? "rgba(99,102,241,0.1)" : "transparent",
-            animation: `pulse-live ${2 + i * 0.4}s ease-in-out infinite`,
-            animationDelay: `${i * 0.2}s`,
+            inset: (80 - size) / 2,
+            borderRadius: "50%",
+            border: `1px solid rgba(99,102,241,${0.18 - i * 0.05})`,
+            animation: `pulse-indigo ${2.2 + i * 0.5}s ease-in-out infinite`,
+            animationDelay: `${i * 0.3}s`,
           }} />
         ))}
         <div style={{
-          position: "absolute", top: "50%", left: "50%",
+          position: "absolute", inset: "50%",
           transform: "translate(-50%,-50%)",
-          width: 12, height: 12, borderRadius: "50%",
-          background: "#6366f1",
-          boxShadow: "0 0 16px rgba(99,102,241,0.6)",
+          width: 14, height: 14, borderRadius: "50%",
+          background: "radial-gradient(circle, #818cf8, #6366f1)",
+          boxShadow: "0 0 20px rgba(99,102,241,0.5)",
         }} />
       </div>
 
-      <h3 style={{ margin: "0 0 8px", fontSize: 17, fontWeight: 700, color: "#e4e4e7", letterSpacing: "-0.025em" }}>
-        Pipeline ready
+      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 10 }}>
+        Adaptive pipeline
+      </div>
+      <h3 style={{ margin: "0 0 8px", fontSize: 18, fontWeight: 700, color: "var(--t1)", letterSpacing: "-0.025em" }}>
+        Ready to run
       </h3>
-      <p style={{ margin: "0 0 32px", fontSize: 13, color: "#52525b", maxWidth: 280, lineHeight: 1.7 }}>
-        Fire the adaptive pipeline to generate a decision with full behavioral context.
+      <p style={{ margin: "0 0 28px", fontSize: 13, color: "var(--t4)", maxWidth: 260, lineHeight: 1.7 }}>
+        Fire the pipeline to compute a decision from live behavioral signals.
       </p>
       <button
+        className="btn-primary"
         onClick={onRun}
-        style={{
-          background: "#6366f1", color: "#fff", border: "none",
-          padding: "10px 28px", borderRadius: 9, fontSize: 13,
-          fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
-          letterSpacing: "0.02em",
-          boxShadow: "0 0 32px rgba(99,102,241,0.35), 0 1px 0 rgba(255,255,255,0.1) inset",
-        }}
+        style={{ fontSize: 13, padding: "10px 24px", boxShadow: "0 0 28px rgba(99,102,241,0.3)" }}
       >
         Run pipeline
       </button>
@@ -330,7 +305,7 @@ function EmptyState({ onRun }: { onRun: () => void }) {
   );
 }
 
-// ─── Root ─────────────────────────────────────────────────────────────────────
+// ── Root ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [view, setView] = useState<View>("landing");

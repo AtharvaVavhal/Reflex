@@ -12,63 +12,79 @@ type Props = {
 };
 
 type Stage = {
-  id:     string;
-  label:  string;
-  icon:   string;
-  rows:   Array<{ key: string; value: string; highlight?: boolean }>;
+  id:      string;
+  label:   string;
+  n:       string;
+  primary: string;
+  sub:     string;
+  accent?: boolean;
 };
 
 function buildStages({ profile, decision, intervention, action }: Omit<Props, "runKey">): Stage[] {
-  const score     = decision.ranked[0]?.score ?? 0;
-  const confPct   = Math.round(Math.max(0, Math.min(1, (score + 1) / 2)) * 100);
-
+  const score   = decision.ranked[0]?.score ?? 0;
+  const confPct = Math.round(Math.max(0, Math.min(1, (score + 1) / 2)) * 100);
   return [
     {
-      id:    "context",
-      label: "Context",
-      icon:  "01",
-      rows:  [
-        { key: "user",   value: "user-1" },
-        { key: "cohort", value: profile.cohort, highlight: true },
-      ],
+      id: "context", label: "Context", n: "01",
+      primary: "user-1",
+      sub: profile.cohort.replace("_", " "),
     },
     {
-      id:    "behavior",
-      label: "Behavior",
-      icon:  "02",
-      rows:  [
-        { key: "engagement", value: `${Math.round(profile.engagement * 100)}%`, highlight: profile.engagement > 0.6 },
-        { key: "churn",      value: `${Math.round(profile.churnRisk * 100)}%` },
-      ],
+      id: "behavior", label: "Behavior", n: "02",
+      primary: `${Math.round(profile.engagement * 100)}% eng`,
+      sub: `${Math.round(profile.churnRisk * 100)}% churn`,
     },
     {
-      id:    "decision",
-      label: "Decision",
-      icon:  "03",
-      rows:  [
-        { key: "action", value: decision.best, highlight: true },
-        { key: "conf",   value: `${confPct}%` },
-      ],
+      id: "decision", label: "Decision", n: "03",
+      primary: decision.best,
+      sub: `${confPct}% conf`,
+      accent: true,
     },
     {
-      id:    "intervention",
-      label: "Calibration",
-      icon:  "04",
-      rows:  [
-        { key: "intensity", value: intervention.intensity, highlight: true },
-        { key: "decision",  value: intervention.decision },
-      ],
+      id: "calibration", label: "Calibration", n: "04",
+      primary: intervention.intensity,
+      sub: TYPE_SHORT[intervention.decision] ?? intervention.decision,
     },
     {
-      id:    "action",
-      label: "Action",
-      icon:  "05",
-      rows:  [
-        { key: "output",    value: action.action,    highlight: true },
-        { key: "intensity", value: action.intensity },
-      ],
+      id: "action", label: "Action", n: "05",
+      primary: action.action,
+      sub: action.intensity,
     },
   ];
+}
+
+const TYPE_SHORT: Record<string, string> = {
+  "show-upsell": "upsell",
+  "do-nothing":  "passive",
+};
+
+// Animated dash connector
+function Connector({ active }: { active?: boolean }) {
+  return (
+    <div style={{
+      display: "flex", alignItems: "center",
+      padding: "0 4px",
+      paddingTop: 1,
+      flexShrink: 0, width: 28,
+    }}>
+      <svg width="28" height="12" viewBox="0 0 28 12" fill="none" overflow="visible">
+        <line
+          x1="0" y1="6" x2="22" y2="6"
+          stroke={active ? "rgba(99,102,241,0.4)" : "rgba(255,255,255,0.07)"}
+          strokeWidth="1"
+          strokeDasharray="3 3"
+          style={active ? { animation: "flow-line 1.2s linear infinite" } : {}}
+        />
+        <path
+          d="M20 3 L24 6 L20 9"
+          stroke={active ? "rgba(99,102,241,0.5)" : "rgba(255,255,255,0.1)"}
+          strokeWidth="1.2"
+          strokeLinecap="round" strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    </div>
+  );
 }
 
 export function PipelineViz({ runKey, ...rest }: Props) {
@@ -77,97 +93,87 @@ export function PipelineViz({ runKey, ...rest }: Props) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".pv-stage", {
-        opacity: 0, y: 10, duration: 0.35, stagger: 0.07,
-        ease: "power2.out", clearProps: "all",
-      });
-      gsap.from(".pv-connector", {
-        scaleX: 0, duration: 0.3, stagger: 0.07, delay: 0.06,
-        ease: "power2.out", transformOrigin: "left center", clearProps: "all",
+      gsap.from(".pv-node", {
+        opacity: 0, y: 8, duration: 0.3,
+        stagger: 0.06, ease: "power2.out", clearProps: "all",
       });
     }, containerRef);
     return () => ctx.revert();
   }, [runKey]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        background: "#111113",
-        border: "1px solid rgba(255,255,255,0.06)",
-        borderRadius: 14,
-        padding: "18px 20px 20px",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{
-        fontSize: 10, fontWeight: 700, letterSpacing: "0.1em",
-        textTransform: "uppercase", color: "#3f3f46", marginBottom: 16,
-      }}>
-        Pipeline · run {runKey}
+    <div style={{
+      background: "var(--surface-1)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--r-lg)",
+      padding: "14px 18px",
+    }}>
+      {/* Header */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--t4)" }}>
+          Pipeline
+        </span>
+        <span style={{ fontSize: 10, color: "var(--t5)", fontFamily: "var(--font-mono)" }}>
+          5 stages · run {runKey}
+        </span>
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(5, 1fr)",
-        alignItems: "start",
-        gap: 0,
-      }}>
+      {/* Stages */}
+      <div
+        ref={containerRef}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         {stages.map((stage, i) => (
-          <div key={stage.id} style={{ display: "flex", alignItems: "flex-start" }}>
-            {/* Stage card */}
-            <div className="pv-stage" style={{ flex: 1, minWidth: 0 }}>
-              <div style={{
-                display: "flex", alignItems: "center", gap: 6, marginBottom: 8,
-              }}>
-                <div style={{
-                  width: 18, height: 18, borderRadius: 5,
-                  background: "rgba(99,102,241,0.15)",
-                  border: "1px solid rgba(99,102,241,0.25)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0,
+          <div key={stage.id} style={{ display: "flex", alignItems: "center", flex: i < stages.length - 1 ? "1 1 0" : "0 0 auto" }}>
+            {/* Node */}
+            <div
+              className="pv-node"
+              style={{
+                flex: "0 0 auto",
+                padding: "10px 12px",
+                borderRadius: "var(--r-md)",
+                background: stage.accent
+                  ? "rgba(99,102,241,0.08)"
+                  : "rgba(255,255,255,0.02)",
+                border: `1px solid ${stage.accent ? "rgba(99,102,241,0.2)" : "var(--border)"}`,
+                boxShadow: stage.accent ? "0 0 16px rgba(99,102,241,0.08)" : "none",
+                minWidth: 0,
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 5 }}>
+                <span style={{
+                  fontSize: 8, fontWeight: 800, fontFamily: "var(--font-mono)",
+                  color: stage.accent ? "#818cf8" : "var(--t5)",
+                  letterSpacing: "0.06em",
                 }}>
-                  <span style={{ fontSize: 8, fontWeight: 800, color: "#818cf8", fontFamily: "var(--font-mono)" }}>
-                    {stage.icon}
-                  </span>
-                </div>
-                <span style={{ fontSize: 11, fontWeight: 600, color: "#71717a", letterSpacing: "0.02em" }}>
+                  {stage.n}
+                </span>
+                <span style={{ fontSize: 10, fontWeight: 600, color: stage.accent ? "#a5b4fc" : "var(--t4)", letterSpacing: "0.03em" }}>
                   {stage.label}
                 </span>
               </div>
-
-              {stage.rows.map(({ key, value, highlight }) => (
-                <div key={key} style={{ marginBottom: 4 }}>
-                  <div style={{ fontSize: 9, color: "#3f3f46", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 1 }}>
-                    {key}
-                  </div>
-                  <div style={{
-                    fontSize: 11, fontWeight: 700,
-                    color: highlight ? "#e4e4e7" : "#71717a",
-                    fontFamily: "var(--font-mono)",
-                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                  }}>
-                    {value}
-                  </div>
-                </div>
-              ))}
+              <div style={{
+                fontSize: 11, fontWeight: 700,
+                color: stage.accent ? "var(--t1)" : "var(--t2)",
+                fontFamily: "var(--font-mono)",
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                marginBottom: 2,
+              }}>
+                {stage.primary}
+              </div>
+              <div style={{
+                fontSize: 10, color: stage.accent ? "#818cf8" : "var(--t5)",
+                fontFamily: "var(--font-mono)",
+                whiteSpace: "nowrap",
+              }}>
+                {stage.sub}
+              </div>
             </div>
 
             {/* Connector */}
             {i < stages.length - 1 && (
-              <div className="pv-connector" style={{
-                display: "flex", alignItems: "center",
-                padding: "0 6px", paddingTop: 9, flexShrink: 0,
-              }}>
-                <div style={{
-                  width: "100%",
-                  display: "flex", alignItems: "center", gap: 0,
-                }}>
-                  <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.08)" }} />
-                  <svg width="6" height="6" viewBox="0 0 6 6" fill="none" style={{ flexShrink: 0 }}>
-                    <path d="M1 1l4 2-4 2" stroke="#3f3f46" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
+              <div style={{ flex: "1 1 0", minWidth: 16, display: "flex", justifyContent: "center" }}>
+                <Connector active={stage.accent || stages[i + 1].accent} />
               </div>
             )}
           </div>

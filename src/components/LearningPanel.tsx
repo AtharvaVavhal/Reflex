@@ -1,7 +1,5 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useRef } from "react";
 import { LearningSnapshot } from "../stages/types";
-import { Card, Badge, SectionLabel, Divider } from "./ui";
 import { Sparkline } from "./Sparkline";
 
 type WeightPoint = { showUpsell: number; doNothing: number };
@@ -11,222 +9,200 @@ type Props = {
   weightHistory: WeightPoint[];
 };
 
-function formatDelta(v: number): string {
-  return `${v >= 0 ? "+" : ""}${v.toFixed(3)}`;
-}
-
 function formatTime(ts: number): string {
   if (!ts) return "—";
   return new Date(ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 }
 
-// ─── Mini weight area chart ───────────────────────────────────────────────────
+// ── Mini area chart ────────────────────────────────────────────────────────────
 
 function WeightChart({ history }: { history: WeightPoint[] }) {
+  const W = 600;
+  const H = 52;
+
   if (history.length < 2) {
     return (
       <div style={{
-        height: 56, display: "flex", alignItems: "center", justifyContent: "center",
-        color: "#3f3f46", fontSize: 11,
+        height: H, display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 11, color: "var(--t5)", fontFamily: "var(--font-mono)",
+        letterSpacing: "0.04em",
       }}>
-        Run more iterations to see weight trajectory
+        accumulating history…
       </div>
     );
   }
 
-  const W = 400;
-  const H = 48;
-
-  const upsellVals = history.map(h => h.showUpsell);
-  const nothingVals = history.map(h => h.doNothing);
-  const allVals = [...upsellVals, ...nothingVals];
-  const min = Math.min(...allVals);
-  const max = Math.max(...allVals);
+  const uVals = history.map(h => h.showUpsell);
+  const nVals = history.map(h => h.doNothing);
+  const all   = [...uVals, ...nVals];
+  const min   = Math.min(...all);
+  const max   = Math.max(...all);
   const range = max - min || 0.1;
 
-  function toPath(vals: number[]): string {
-    return vals.reduce((d, v, i) => {
-      const x = (i / (vals.length - 1)) * W;
-      const y = H - ((v - min) / range) * (H * 0.8) - H * 0.1;
-      if (i === 0) return `M ${x.toFixed(1)} ${y.toFixed(1)}`;
-      const prev = vals[i - 1];
-      const px = ((i - 1) / (vals.length - 1)) * W;
-      const py = H - ((prev - min) / range) * (H * 0.8) - H * 0.1;
-      const cx = (px + x) / 2;
-      return `${d} C ${cx.toFixed(1)} ${py.toFixed(1)} ${cx.toFixed(1)} ${y.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}`;
+  function pts(vals: number[]): Array<{ x: number; y: number }> {
+    return vals.map((v, i) => ({
+      x: (i / (vals.length - 1)) * W,
+      y: H - 4 - ((v - min) / range) * (H - 10),
+    }));
+  }
+
+  function smooth(points: Array<{ x: number; y: number }>): string {
+    return points.reduce((d, p, i) => {
+      if (i === 0) return `M ${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+      const prev = points[i - 1];
+      const cx   = (prev.x + p.x) / 2;
+      return `${d} C ${cx.toFixed(1)},${prev.y.toFixed(1)} ${cx.toFixed(1)},${p.y.toFixed(1)} ${p.x.toFixed(1)},${p.y.toFixed(1)}`;
     }, "");
   }
 
-  const upsellPath  = toPath(upsellVals);
-  const nothingPath = toPath(nothingVals);
+  const uPath = smooth(pts(uVals));
+  const nPath = smooth(pts(nVals));
 
   // Y-axis ticks
-  const ticks = [min, (min + max) / 2, max].map(v => ({
-    label: v.toFixed(2),
-    y:     H - ((v - min) / range) * (H * 0.8) - H * 0.1,
-  }));
+  const ticks = 3;
+  const yTicks = Array.from({ length: ticks }, (_, i) => {
+    const v = min + (max - min) * (i / (ticks - 1));
+    const y = H - 4 - ((v - min) / range) * (H - 10);
+    return { v, y };
+  });
 
   return (
     <div style={{ position: "relative" }}>
-      {/* Y-axis labels */}
-      <div style={{ position: "absolute", left: 0, top: 0, height: H, pointerEvents: "none" }}>
-        {ticks.map(({ label, y }) => (
-          <div
-            key={label}
-            style={{
-              position: "absolute", right: "calc(100% + 6px)", top: y - 7,
-              fontSize: 9, color: "#3f3f46", fontFamily: "var(--font-mono)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {label}
+      {/* Y labels */}
+      <div style={{ position: "absolute", left: 0, top: 0, height: H, width: 32, pointerEvents: "none" }}>
+        {yTicks.map(({ v, y }) => (
+          <div key={v} style={{
+            position: "absolute", right: 4, top: y - 6,
+            fontSize: 9, color: "var(--t5)", fontFamily: "var(--font-mono)",
+            textAlign: "right",
+          }}>
+            {v.toFixed(2)}
           </div>
         ))}
       </div>
 
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        width="100%"
-        height={H}
-        preserveAspectRatio="none"
-        style={{ overflow: "visible" }}
-      >
-        <defs>
-          <linearGradient id="grad-upsell" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#6366f1" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0"   />
-          </linearGradient>
-          <linearGradient id="grad-nothing" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#22c55e" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#22c55e" stopOpacity="0"    />
-          </linearGradient>
-        </defs>
+      <div style={{ paddingLeft: 36 }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} preserveAspectRatio="none" style={{ overflow: "visible", display: "block" }}>
+          <defs>
+            <linearGradient id="lg-u" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stopColor="#6366f1" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#6366f1" stopOpacity="0"    />
+            </linearGradient>
+            <linearGradient id="lg-n" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stopColor="#22c55e" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#22c55e" stopOpacity="0"    />
+            </linearGradient>
+          </defs>
 
-        {/* Grid lines */}
-        {ticks.map(({ y }) => (
-          <line key={y} x1={0} y1={y} x2={W} y2={y}
-            stroke="rgba(255,255,255,0.05)" strokeWidth={1} />
-        ))}
+          {/* Grid */}
+          {yTicks.map(({ y }) => (
+            <line key={y} x1={0} y1={y} x2={W} y2={y} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+          ))}
 
-        {/* Fill areas */}
-        <path d={`${upsellPath} L ${W} ${H} L 0 ${H} Z`}  fill="url(#grad-upsell)"  />
-        <path d={`${nothingPath} L ${W} ${H} L 0 ${H} Z`} fill="url(#grad-nothing)" />
+          {/* Fills */}
+          <path d={`${uPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-u)" />
+          <path d={`${nPath} L ${W},${H} L 0,${H} Z`} fill="url(#lg-n)" />
 
-        {/* Lines */}
-        <path d={upsellPath}  fill="none" stroke="#6366f1" strokeWidth={1.5} strokeLinecap="round" />
-        <path d={nothingPath} fill="none" stroke="#22c55e" strokeWidth={1.5} strokeLinecap="round" />
+          {/* Lines */}
+          <path d={uPath} fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
+          <path d={nPath} fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" />
 
-        {/* End dots */}
-        {[
-          { vals: upsellVals,  color: "#6366f1" },
-          { vals: nothingVals, color: "#22c55e" },
-        ].map(({ vals, color }) => {
-          const last = vals[vals.length - 1];
-          const y    = H - ((last - min) / range) * (H * 0.8) - H * 0.1;
-          return (
-            <circle key={color} cx={W} cy={y} r={2.5} fill={color} />
-          );
-        })}
-      </svg>
+          {/* End dots */}
+          {[
+            { vals: uVals, color: "#6366f1" },
+            { vals: nVals, color: "#22c55e" },
+          ].map(({ vals, color }) => {
+            const last = vals[vals.length - 1];
+            const y    = H - 4 - ((last - min) / range) * (H - 10);
+            return <circle key={color} cx={W} cy={y} r={2.5} fill={color} />;
+          })}
+        </svg>
 
-      {/* Legend */}
-      <div style={{ display: "flex", gap: 16, marginTop: 8 }}>
-        {[
-          { label: "show-upsell", color: "#6366f1" },
-          { label: "do-nothing",  color: "#22c55e" },
-        ].map(({ label, color }) => (
-          <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
-            <div style={{ width: 12, height: 2, background: color, borderRadius: 1 }} />
-            <span style={{ fontSize: 10, color: "#52525b", fontFamily: "var(--font-mono)" }}>{label}</span>
-          </div>
-        ))}
+        {/* Legend */}
+        <div style={{ display: "flex", gap: 16, marginTop: 8 }}>
+          {[{ label: "show-upsell", color: "#6366f1" }, { label: "do-nothing", color: "#22c55e" }].map(({ label, color }) => (
+            <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              <div style={{ width: 12, height: 1.5, background: color, borderRadius: 1 }} />
+              <span style={{ fontSize: 9, color: "var(--t5)", fontFamily: "var(--font-mono)", letterSpacing: "0.04em" }}>{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
+// ── Main ──────────────────────────────────────────────────────────────────────
 
 export function LearningPanel({ learning, weightHistory }: Props) {
-  const ref     = useRef<HTMLDivElement>(null);
-  const prevRef = useRef<LearningSnapshot | null>(null);
-
-  useEffect(() => {
-    if (!ref.current || !prevRef.current) { prevRef.current = learning; return; }
-    const ctx = gsap.context(() => {
-      gsap.from(".lp-row-flash", {
-        backgroundColor: "rgba(99,102,241,0.08)", duration: 0.8, ease: "power2.out",
-      });
-    }, ref);
-    prevRef.current = learning;
-    return () => ctx.revert();
-  }, [learning]);
-
-  const netDelta    = Object.values(learning.delta).reduce((s, v) => s + (v ?? 0), 0);
-  const overallUp   = netDelta >  0.001;
-  const overallDown = netDelta < -0.001;
+  const rowRef = useRef<HTMLDivElement>(null);
+  const netDelta = Object.values(learning.delta).reduce((s, v) => s + (v ?? 0), 0);
+  const trend = netDelta > 0.001 ? { label: "improving", color: "#22c55e" }
+              : netDelta < -0.001 ? { label: "declining", color: "#ef4444" }
+              : { label: "stable", color: "var(--t4)" };
 
   return (
-    <Card style={{ padding: "20px 24px" }}>
-      <div ref={ref}>
-        {/* Header */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <SectionLabel>Learning</SectionLabel>
-            <Badge variant={overallUp ? "green" : overallDown ? "red" : "default"}>
-              {overallUp ? "↑ improving" : overallDown ? "↓ declining" : "→ stable"}
-            </Badge>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <span style={{ fontSize: 11, color: "#3f3f46", fontFamily: "var(--font-mono)" }}>
-              {weightHistory.length} runs
+    <div style={{
+      background: "var(--surface-2)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--r-lg)",
+      padding: "18px 20px",
+    }}>
+      {/* Header */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--t4)" }}>
+            Learning
+          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: trend.color }} />
+            <span style={{ fontSize: 10, fontWeight: 700, color: trend.color, letterSpacing: "0.04em" }}>
+              {trend.label}
             </span>
-            <span style={{ fontSize: 11, color: "#3f3f46" }}>{formatTime(learning.updatedAt)}</span>
           </div>
         </div>
-
-        {/* Weight chart */}
-        <div style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.05)",
-          borderRadius: 10,
-          padding: "14px 16px 10px 28px",
-          marginBottom: 20,
-        }}>
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#3f3f46", marginBottom: 10 }}>
-            Weight trajectory
-          </div>
-          <WeightChart history={weightHistory} />
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <span style={{ fontSize: 10, color: "var(--t5)", fontFamily: "var(--font-mono)" }}>
+            {weightHistory.length} runs · {Math.round(learning.successRate * 100)}% success
+          </span>
+          <span style={{ fontSize: 10, color: "var(--t5)" }}>
+            {formatTime(learning.updatedAt)}
+          </span>
         </div>
+      </div>
 
-        {/* KPI strip */}
-        <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
-          {[
-            { label: "Success rate", value: `${Math.round(learning.successRate * 100)}%` },
-            { label: "Decisions",    value: Object.keys(learning.weights).length.toString() },
-            { label: "Updated",      value: learning.updatedAt ? "yes" : "never" },
-          ].map(({ label, value }) => (
-            <div key={label} style={{
-              flex: 1, background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.05)",
-              borderRadius: 8, padding: "8px 12px",
-            }}>
-              <div style={{ fontSize: 10, color: "#52525b", marginBottom: 4 }}>{label}</div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: "#e4e4e7", fontFamily: "var(--font-mono)" }}>{value}</div>
-            </div>
-          ))}
+      {/* Weight chart */}
+      <div style={{
+        background: "rgba(255,255,255,0.015)",
+        border: "1px solid var(--border)",
+        borderRadius: "var(--r-md)",
+        padding: "12px 14px 10px",
+        marginBottom: 16,
+      }}>
+        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 10 }}>
+          Weight trajectory
         </div>
+        <WeightChart history={weightHistory} />
+      </div>
 
-        <Divider style={{ marginBottom: 14 }} />
-
-        {/* Weight table */}
+      {/* Weight table */}
+      <div>
+        {/* Column headers */}
         <div style={{
-          display: "grid", gridTemplateColumns: "1.5fr 0.8fr 0.8fr 80px 1fr",
-          gap: 8, padding: "0 0 8px",
+          display: "grid",
+          gridTemplateColumns: "140px 1fr 1fr 72px 1fr",
+          gap: "0 8px",
+          padding: "0 0 8px",
+          borderBottom: "1px solid var(--border)",
           fontSize: 9, fontWeight: 700, letterSpacing: "0.1em",
-          textTransform: "uppercase", color: "#3f3f46",
+          textTransform: "uppercase", color: "var(--t5)",
+          alignItems: "center",
         }}>
-          <span>Decision</span><span>Before</span><span>After</span><span>Trend</span><span>Delta</span>
+          <span>Decision</span>
+          <span style={{ textAlign: "right" }}>Before</span>
+          <span style={{ textAlign: "right" }}>After</span>
+          <span>Trend</span>
+          <span style={{ textAlign: "right" }}>Δ Delta</span>
         </div>
 
         {(Object.keys(learning.weights) as Array<keyof typeof learning.weights>).map((key) => {
@@ -236,36 +212,48 @@ export function LearningPanel({ learning, weightHistory }: Props) {
           const history = key === "show-upsell"
             ? weightHistory.map(h => h.showUpsell)
             : weightHistory.map(h => h.doNothing);
-          const up = change >  0.001;
-          const dn = change < -0.001;
+          const sparkColor = key === "show-upsell" ? "#6366f1" : "#22c55e";
+          const up  = change >  0.001;
+          const dn  = change < -0.001;
+          const dc  = up ? "#22c55e" : dn ? "#ef4444" : "var(--t5)";
 
           return (
             <div
               key={String(key)}
-              className="lp-row-flash"
+              ref={rowRef}
               style={{
-                display: "grid", gridTemplateColumns: "1.5fr 0.8fr 0.8fr 80px 1fr",
-                gap: 8, padding: "10px 0",
+                display: "grid",
+                gridTemplateColumns: "140px 1fr 1fr 72px 1fr",
+                gap: "0 8px",
+                padding: "10px 0",
+                borderBottom: "1px solid var(--border)",
                 alignItems: "center",
-                borderTop: "1px solid rgba(255,255,255,0.04)",
+                animation: "highlight-row 1.2s ease-out",
               }}
             >
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#e4e4e7" }}>{String(key)}</span>
-              <span style={{ fontSize: 11, color: "#52525b", fontFamily: "var(--font-mono)" }}>{before.toFixed(3)}</span>
-              <span style={{ fontSize: 11, color: "#a1a1aa", fontFamily: "var(--font-mono)", fontWeight: 600 }}>{after.toFixed(3)}</span>
-              <Sparkline
-                values={history}
-                width={72}
-                height={22}
-                color={key === "show-upsell" ? "#6366f1" : "#22c55e"}
-              />
-              <Badge variant={up ? "green" : dn ? "red" : "default"} style={{ width: "fit-content" }}>
-                {formatDelta(change)}
-              </Badge>
+              <span style={{ fontSize: 11, fontWeight: 700, color: "var(--t2)", fontFamily: "var(--font-mono)" }}>
+                {String(key)}
+              </span>
+              <span style={{ fontSize: 11, color: "var(--t4)", fontFamily: "var(--font-mono)", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                {before.toFixed(4)}
+              </span>
+              <span style={{ fontSize: 11, fontWeight: 700, color: "var(--t2)", fontFamily: "var(--font-mono)", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                {after.toFixed(4)}
+              </span>
+              <div>
+                <Sparkline values={history} width={64} height={20} color={sparkColor} fillOpacity={0.12} />
+              </div>
+              <span style={{
+                fontSize: 11, fontWeight: 700, color: dc,
+                fontFamily: "var(--font-mono)", textAlign: "right",
+                fontVariantNumeric: "tabular-nums",
+              }}>
+                {up ? "+" : ""}{change.toFixed(4)}
+              </span>
             </div>
           );
         })}
       </div>
-    </Card>
+    </div>
   );
 }

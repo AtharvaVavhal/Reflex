@@ -1,27 +1,24 @@
 import { Intervention, IntensityLevel } from "../stages/types";
-import { Card, SectionLabel, Badge } from "./ui";
 
-type Props = {
-  intervention: Intervention;
-};
+type Props = { intervention: Intervention };
 
-const INTENSITY_STEPS: IntensityLevel[] = ["silent", "hint", "nudge", "prompt", "strong"];
+const STEPS: IntensityLevel[] = ["silent", "hint", "nudge", "prompt", "strong"];
 
-const TYPE_LABELS: Record<string, string> = {
+const TYPE_LABEL: Record<string, string> = {
   "show-upsell": "Upsell prompt",
   "do-nothing":  "No action",
 };
 
-const INTENSITY_META: Record<IntensityLevel, { label: string; variant: "green" | "amber" | "red" | "default" }> = {
-  silent: { label: "Silent",  variant: "default" },
-  hint:   { label: "Hint",    variant: "green"   },
-  nudge:  { label: "Nudge",   variant: "green"   },
-  prompt: { label: "Prompt",  variant: "amber"   },
-  strong: { label: "Strong",  variant: "red"     },
-  block:  { label: "Block",   variant: "red"     },
+const INTENSITY_COLOR: Record<IntensityLevel, string> = {
+  silent: "#3f3f46",
+  hint:   "#22c55e",
+  nudge:  "#22c55e",
+  prompt: "#f59e0b",
+  strong: "#ef4444",
+  block:  "#ef4444",
 };
 
-const FATIGUE_META: Record<IntensityLevel, { label: string; color: string }> = {
+const FATIGUE: Record<IntensityLevel, { label: string; color: string }> = {
   silent: { label: "None",   color: "#22c55e" },
   hint:   { label: "Low",    color: "#22c55e" },
   nudge:  { label: "Low",    color: "#22c55e" },
@@ -30,59 +27,60 @@ const FATIGUE_META: Record<IntensityLevel, { label: string; color: string }> = {
   block:  { label: "High",   color: "#ef4444" },
 };
 
-function IntensityDots({ intensity }: { intensity: IntensityLevel }) {
-  const filledCount = Math.min(INTENSITY_STEPS.indexOf(intensity) + 1, INTENSITY_STEPS.length);
-  const meta = INTENSITY_META[intensity] ?? INTENSITY_META.silent;
-
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      <div style={{ display: "flex", gap: 5 }}>
-        {INTENSITY_STEPS.map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: 8, height: 8, borderRadius: "50%",
-              background: i < filledCount ? "#6366f1" : "rgba(255,255,255,0.08)",
-              transition: "background 200ms",
-            }}
-          />
-        ))}
-      </div>
-      <Badge variant={meta.variant}>{meta.label}</Badge>
-    </div>
-  );
-}
-
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div style={{ marginBottom: 16 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "#52525b", marginBottom: 7 }}>
-        {label}
-      </div>
-      {children}
-    </div>
-  );
-}
-
 export function InterventionPanel({ intervention }: Props) {
-  const fatigue   = FATIGUE_META[intervention.intensity];
-  const typeLabel = TYPE_LABELS[intervention.decision] ?? intervention.decision;
+  const filled  = STEPS.indexOf(intervention.intensity) + 1;
+  const color   = INTENSITY_COLOR[intervention.intensity];
+  const fatigue = FATIGUE[intervention.intensity];
+  const typeLabel = TYPE_LABEL[intervention.decision] ?? intervention.decision;
 
   return (
-    <Card style={{ padding: "18px 20px" }}>
-      <SectionLabel style={{ marginBottom: 20 }}>Intervention</SectionLabel>
+    <div style={{
+      background: "var(--surface-2)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--r-lg)",
+      padding: "16px 18px",
+    }}>
+      <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--t4)", display: "block", marginBottom: 16 }}>
+        Intervention
+      </span>
 
-      <Row label="Type">
-        <span style={{ fontSize: 13, fontWeight: 600, color: "#e4e4e7" }}>{typeLabel}</span>
-      </Row>
+      {/* Type */}
+      <div style={{ marginBottom: 14 }}>
+        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 4 }}>Type</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--t1)" }}>{typeLabel}</div>
+      </div>
 
-      <Row label="Intensity">
-        <IntensityDots intensity={intervention.intensity} />
-      </Row>
+      {/* Intensity */}
+      <div style={{ marginBottom: 14 }}>
+        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 8 }}>Intensity</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ display: "flex", gap: 4 }}>
+            {STEPS.map((_, i) => (
+              <div
+                key={i}
+                style={{
+                  width: 6, height: 6, borderRadius: "50%",
+                  background: i < filled ? color : "rgba(255,255,255,0.06)",
+                  boxShadow: i < filled && i === filled - 1 ? `0 0 6px ${color}` : "none",
+                  transition: "background 200ms",
+                }}
+              />
+            ))}
+          </div>
+          <span style={{ fontSize: 11, fontWeight: 700, color, letterSpacing: "0.03em" }}>
+            {intervention.intensity.charAt(0).toUpperCase() + intervention.intensity.slice(1)}
+          </span>
+        </div>
+      </div>
 
-      <Row label="Fatigue risk">
-        <span style={{ fontSize: 13, fontWeight: 700, color: fatigue.color }}>{fatigue.label}</span>
-      </Row>
-    </Card>
+      {/* Fatigue risk */}
+      <div>
+        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 4 }}>Fatigue risk</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: fatigue.color, flexShrink: 0 }} />
+          <span style={{ fontSize: 12, fontWeight: 700, color: fatigue.color }}>{fatigue.label}</span>
+        </div>
+      </div>
+    </div>
   );
 }
