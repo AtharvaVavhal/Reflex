@@ -1,0 +1,2108 @@
+{
+  "adaptive": [
+    {
+      "iteration": 0,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 1,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 2,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 3,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 4,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 5,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 6,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 7,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 8,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 9,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 10,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 11,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 12,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 13,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 14,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 15,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 16,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 17,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 18,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 19,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 20,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 21,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 22,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 23,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 24,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 25,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 26,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 27,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 28,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 29,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 30,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 31,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 32,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 33,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 34,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 35,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 36,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 37,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 38,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 39,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 40,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 41,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 42,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 43,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 44,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 45,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 46,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 47,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 48,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 49,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 50,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 51,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 52,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 53,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 54,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 55,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 56,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 57,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 58,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 59,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 60,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 61,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 62,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 63,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 64,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 65,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": true,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 66,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 67,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 68,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 69,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 70,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 71,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": true,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 72,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 73,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 74,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 75,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 76,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 77,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 78,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 79,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 80,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 81,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 82,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 83,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 84,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 85,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 86,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 87,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 88,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 89,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 90,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 91,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 92,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 93,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 94,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 95,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 96,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 97,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 98,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 99,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    }
+  ],
+  "greedy": [
+    {
+      "iteration": 0,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 1,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 2,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 3,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 4,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 5,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 6,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 7,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 8,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 9,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 10,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 11,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 12,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 13,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 14,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 15,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 16,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 17,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 18,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 19,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 20,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 21,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 22,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 23,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 24,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 25,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 26,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 27,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 28,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 29,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 30,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 31,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 32,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 33,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 34,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 35,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 36,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 37,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 38,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 39,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 40,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 41,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 42,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 43,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 44,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 45,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 46,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 47,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 48,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 49,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 50,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 51,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 52,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 53,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 54,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 55,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 56,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 57,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 58,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 59,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 60,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 61,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 62,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 63,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 64,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 65,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 66,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 67,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 68,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 69,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 70,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 71,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 72,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 73,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 74,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 75,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 76,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 77,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 78,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 79,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 80,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 81,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 82,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 83,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 84,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 85,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 86,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 87,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 88,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 89,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 90,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 91,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 92,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 93,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 94,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 95,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 96,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 97,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 98,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 99,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    }
+  ],
+  "random": [
+    {
+      "iteration": 0,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 1,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 2,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 3,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 4,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 5,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 6,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 7,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 8,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 9,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 10,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 11,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 12,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 13,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 14,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 15,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 16,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 17,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 18,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 19,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 20,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 21,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 22,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 23,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 24,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 25,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 26,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 27,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 28,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 29,
+      "phase": "Phase 1",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 30,
+      "phase": "Phase 1",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 31,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 32,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 33,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 34,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 35,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 36,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 37,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 38,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 39,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 40,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 41,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 42,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 43,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 44,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 45,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 46,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 47,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 48,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 49,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 50,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 51,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 52,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 53,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 54,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 55,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 56,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 57,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 58,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 59,
+      "phase": "Phase 2",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 60,
+      "phase": "Phase 2",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 61,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 62,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 63,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 64,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 65,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 66,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 67,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 68,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 69,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 70,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 71,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 72,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 73,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 74,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "negative"
+    },
+    {
+      "iteration": 75,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 76,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 77,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 78,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 79,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 80,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 81,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 82,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 83,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 84,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 85,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 86,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 87,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 88,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 89,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 90,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 91,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 92,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 93,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 94,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 95,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "positive"
+    },
+    {
+      "iteration": 96,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 97,
+      "phase": "Phase 3",
+      "decision": "show-upsell",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 98,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    },
+    {
+      "iteration": 99,
+      "phase": "Phase 3",
+      "decision": "do-nothing",
+      "explored": false,
+      "outcome": "neutral"
+    }
+  ]
+}

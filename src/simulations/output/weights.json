@@ -1,0 +1,502 @@
+[
+  {
+    "iteration": 0,
+    "showUpsellWeight": 1,
+    "doNothingWeight": 1
+  },
+  {
+    "iteration": 1,
+    "showUpsellWeight": 1,
+    "doNothingWeight": 1
+  },
+  {
+    "iteration": 2,
+    "showUpsellWeight": 1.0680352349015554,
+    "doNothingWeight": 0.9803999999999999
+  },
+  {
+    "iteration": 3,
+    "showUpsellWeight": 1.0680352349015554,
+    "doNothingWeight": 0.9803999999999999
+  },
+  {
+    "iteration": 4,
+    "showUpsellWeight": 1.0466745302035243,
+    "doNothingWeight": 0.9615761599999999
+  },
+  {
+    "iteration": 5,
+    "showUpsellWeight": 1.0466745302035243,
+    "doNothingWeight": 0.9615761599999999
+  },
+  {
+    "iteration": 6,
+    "showUpsellWeight": 1.0252262188074646,
+    "doNothingWeight": 1.0423446368
+  },
+  {
+    "iteration": 7,
+    "showUpsellWeight": 1.0252262188074646,
+    "doNothingWeight": 1.0423446368
+  },
+  {
+    "iteration": 8,
+    "showUpsellWeight": 1.004627260542689,
+    "doNothingWeight": 0.9197586136292175
+  },
+  {
+    "iteration": 9,
+    "showUpsellWeight": 0.9845347153318351,
+    "doNothingWeight": 0.9033361725295005
+  },
+  {
+    "iteration": 10,
+    "showUpsellWeight": 0.8648440210251984,
+    "doNothingWeight": 0.8875640600973322
+  },
+  {
+    "iteration": 11,
+    "showUpsellWeight": 0.9475471406046945,
+    "doNothingWeight": 0.8724165233174779
+  },
+  {
+    "iteration": 12,
+    "showUpsellWeight": 0.9300242738367486,
+    "doNothingWeight": 0.9549681928511284
+  },
+  {
+    "iteration": 13,
+    "showUpsellWeight": 0.9131953125928133,
+    "doNothingWeight": 0.8358688289941059
+  },
+  {
+    "iteration": 14,
+    "showUpsellWeight": 0.9131953125928133,
+    "doNothingWeight": 0.8358688289941059
+  },
+  {
+    "iteration": 15,
+    "showUpsellWeight": 0.9131953125928133,
+    "doNothingWeight": 0.8358688289941059
+  },
+  {
+    "iteration": 16,
+    "showUpsellWeight": 0.8970327782141378,
+    "doNothingWeight": 0.8191514524142236
+  },
+  {
+    "iteration": 17,
+    "showUpsellWeight": 0.9862349797927121,
+    "doNothingWeight": 0.702768423365939
+  },
+  {
+    "iteration": 18,
+    "showUpsellWeight": 0.9671800745929208,
+    "doNothingWeight": 0.5887130548986202
+  },
+  {
+    "iteration": 19,
+    "showUpsellWeight": 0.948879743639041,
+    "doNothingWeight": 0.5769387938006478
+  },
+  {
+    "iteration": 20,
+    "showUpsellWeight": 0.931304105790935,
+    "doNothingWeight": 0.6654000179246349
+  },
+  {
+    "iteration": 21,
+    "showUpsellWeight": 0.931304105790935,
+    "doNothingWeight": 0.6654000179246349
+  },
+  {
+    "iteration": 22,
+    "showUpsellWeight": 0.931304105790935,
+    "doNothingWeight": 0.6654000179246349
+  },
+  {
+    "iteration": 23,
+    "showUpsellWeight": 0.914424463201614,
+    "doNothingWeight": 0.6520920175661422
+  },
+  {
+    "iteration": 24,
+    "showUpsellWeight": 0.89821325445883,
+    "doNothingWeight": 0.6390501772148194
+  },
+  {
+    "iteration": 25,
+    "showUpsellWeight": 0.8826440095822604,
+    "doNothingWeight": 0.5245300432357404
+  },
+  {
+    "iteration": 26,
+    "showUpsellWeight": 0.8826440095822604,
+    "doNothingWeight": 0.5245300432357404
+  },
+  {
+    "iteration": 27,
+    "showUpsellWeight": 0.8676913068028028,
+    "doNothingWeight": 0.5140394423710255
+  },
+  {
+    "iteration": 28,
+    "showUpsellWeight": 0.8533307310534118,
+    "doNothingWeight": 0.40375865352360496
+  },
+  {
+    "iteration": 29,
+    "showUpsellWeight": 0.8533307310534118,
+    "doNothingWeight": 0.40375865352360496
+  },
+  {
+    "iteration": 30,
+    "showUpsellWeight": 0.8395388341036967,
+    "doNothingWeight": 0.41727925591609577
+  },
+  {
+    "iteration": 31,
+    "showUpsellWeight": 0.8262930962731903,
+    "doNothingWeight": 0.4089336707977739
+  },
+  {
+    "iteration": 32,
+    "showUpsellWeight": 0.8262930962731903,
+    "doNothingWeight": 0.4089336707977739
+  },
+  {
+    "iteration": 33,
+    "showUpsellWeight": 0.813571889660772,
+    "doNothingWeight": 0.4007549973818184
+  },
+  {
+    "iteration": 34,
+    "showUpsellWeight": 0.813571889660772,
+    "doNothingWeight": 0.4007549973818184
+  },
+  {
+    "iteration": 35,
+    "showUpsellWeight": 0.8013544428302054,
+    "doNothingWeight": 0.4998827545770391
+  },
+  {
+    "iteration": 36,
+    "showUpsellWeight": 0.7896208068941293,
+    "doNothingWeight": 0.5898850994854984
+  },
+  {
+    "iteration": 37,
+    "showUpsellWeight": 0.7783518229411217,
+    "doNothingWeight": 0.6780873974957884
+  },
+  {
+    "iteration": 38,
+    "showUpsellWeight": 0.7675290907526533,
+    "doNothingWeight": 0.7716685066887297
+  },
+  {
+    "iteration": 39,
+    "showUpsellWeight": 0.7675290907526533,
+    "doNothingWeight": 0.7716685066887297
+  },
+  {
+    "iteration": 40,
+    "showUpsellWeight": 0.7675290907526533,
+    "doNothingWeight": 0.7716685066887297
+  },
+  {
+    "iteration": 41,
+    "showUpsellWeight": 0.7675290907526533,
+    "doNothingWeight": 0.7716685066887297
+  },
+  {
+    "iteration": 42,
+    "showUpsellWeight": 0.6521785089376001,
+    "doNothingWeight": 0.856235136554955
+  },
+  {
+    "iteration": 43,
+    "showUpsellWeight": 0.5497942794181887,
+    "doNothingWeight": 0.8423282251473787
+  },
+  {
+    "iteration": 44,
+    "showUpsellWeight": 0.5497942794181887,
+    "doNothingWeight": 0.8423282251473787
+  },
+  {
+    "iteration": 45,
+    "showUpsellWeight": 0.638798393829825,
+    "doNothingWeight": 0.8289720274315424
+  },
+  {
+    "iteration": 46,
+    "showUpsellWeight": 0.7260224259532284,
+    "doNothingWeight": 0.8161447351452533
+  },
+  {
+    "iteration": 47,
+    "showUpsellWeight": 0.8115019774341639,
+    "doNothingWeight": 0.8038254036335013
+  },
+  {
+    "iteration": 48,
+    "showUpsellWeight": 0.8115019774341639,
+    "doNothingWeight": 0.8038254036335013
+  },
+  {
+    "iteration": 49,
+    "showUpsellWeight": 0.7952719378854806,
+    "doNothingWeight": 0.7919939176496147
+  },
+  {
+    "iteration": 50,
+    "showUpsellWeight": 0.7837791691452155,
+    "doNothingWeight": 0.8761540392966224
+  },
+  {
+    "iteration": 51,
+    "showUpsellWeight": 0.6681035857623111,
+    "doNothingWeight": 0.8614583393404761
+  },
+  {
+    "iteration": 52,
+    "showUpsellWeight": 0.6547415140470648,
+    "doNothingWeight": 0.9513720296965237
+  },
+  {
+    "iteration": 53,
+    "showUpsellWeight": 0.5523060244254642,
+    "doNothingWeight": 0.9336976973205413
+  },
+  {
+    "iteration": 54,
+    "showUpsellWeight": 0.5523060244254642,
+    "doNothingWeight": 0.9336976973205413
+  },
+  {
+    "iteration": 55,
+    "showUpsellWeight": 0.5412599039369549,
+    "doNothingWeight": 0.9167232685066479
+  },
+  {
+    "iteration": 56,
+    "showUpsellWeight": 0.5412599039369549,
+    "doNothingWeight": 0.9167232685066479
+  },
+  {
+    "iteration": 57,
+    "showUpsellWeight": 0.6304347058582158,
+    "doNothingWeight": 0.9004210270737846
+  },
+  {
+    "iteration": 58,
+    "showUpsellWeight": 0.7178260117410515,
+    "doNothingWeight": 0.8847643544016627
+  },
+  {
+    "iteration": 59,
+    "showUpsellWeight": 0.7034694915062305,
+    "doNothingWeight": 0.8697276859673568
+  },
+  {
+    "iteration": 60,
+    "showUpsellWeight": 0.796542958818963,
+    "doNothingWeight": 0.8552864696030494
+  },
+  {
+    "iteration": 61,
+    "showUpsellWeight": 0.7806120996425837,
+    "doNothingWeight": 0.8414171254067686
+  },
+  {
+    "iteration": 62,
+    "showUpsellWeight": 0.764999857649732,
+    "doNothingWeight": 0.8280970072406606
+  },
+  {
+    "iteration": 63,
+    "showUpsellWeight": 0.764999857649732,
+    "doNothingWeight": 0.8280970072406606
+  },
+  {
+    "iteration": 64,
+    "showUpsellWeight": 0.764999857649732,
+    "doNothingWeight": 0.8280970072406606
+  },
+  {
+    "iteration": 65,
+    "showUpsellWeight": 0.764999857649732,
+    "doNothingWeight": 0.8280970072406606
+  },
+  {
+    "iteration": 66,
+    "showUpsellWeight": 0.8621998604967374,
+    "doNothingWeight": 0.8153043657539304
+  },
+  {
+    "iteration": 67,
+    "showUpsellWeight": 0.9520987204296597,
+    "doNothingWeight": 0.8030183128700747
+  },
+  {
+    "iteration": 68,
+    "showUpsellWeight": 0.9520987204296597,
+    "doNothingWeight": 0.8030183128700747
+  },
+  {
+    "iteration": 69,
+    "showUpsellWeight": 0.9343956111006452,
+    "doNothingWeight": 0.7869579466126733
+  },
+  {
+    "iteration": 70,
+    "showUpsellWeight": 0.9173935449010596,
+    "doNothingWeight": 0.7712187876804197
+  },
+  {
+    "iteration": 71,
+    "showUpsellWeight": 0.9173935449010596,
+    "doNothingWeight": 0.7712187876804197
+  },
+  {
+    "iteration": 72,
+    "showUpsellWeight": 0.9010647605229776,
+    "doNothingWeight": 0.666453752586152
+  },
+  {
+    "iteration": 73,
+    "showUpsellWeight": 0.9010647605229776,
+    "doNothingWeight": 0.666453752586152
+  },
+  {
+    "iteration": 74,
+    "showUpsellWeight": 0.8853825960062677,
+    "doNothingWeight": 0.6531246775344289
+  },
+  {
+    "iteration": 75,
+    "showUpsellWeight": 0.9748178012289994,
+    "doNothingWeight": 0.6472609403040656
+  },
+  {
+    "iteration": 76,
+    "showUpsellWeight": 0.9748178012289994,
+    "doNothingWeight": 0.6472609403040656
+  },
+  {
+    "iteration": 77,
+    "showUpsellWeight": 0.9553214452044194,
+    "doNothingWeight": 0.6416294070680245
+  },
+  {
+    "iteration": 78,
+    "showUpsellWeight": 1.036215016300331,
+    "doNothingWeight": 0.6362208825481308
+  },
+  {
+    "iteration": 79,
+    "showUpsellWeight": 1.0154907159743243,
+    "doNothingWeight": 0.6310265355992248
+  },
+  {
+    "iteration": 80,
+    "showUpsellWeight": 1.0154907159743243,
+    "doNothingWeight": 0.6310265355992248
+  },
+  {
+    "iteration": 81,
+    "showUpsellWeight": 1.1023237587976948,
+    "doNothingWeight": 0.6260378847894955
+  },
+  {
+    "iteration": 82,
+    "showUpsellWeight": 0.9802772836217408,
+    "doNothingWeight": 0.6212467845518315
+  },
+  {
+    "iteration": 83,
+    "showUpsellWeight": 1.060671737949306,
+    "doNothingWeight": 0.6166454118835789
+  },
+  {
+    "iteration": 84,
+    "showUpsellWeight": 1.13945830319032,
+    "doNothingWeight": 0.6122262535729891
+  },
+  {
+    "iteration": 85,
+    "showUpsellWeight": 1.13945830319032,
+    "doNothingWeight": 0.6122262535729891
+  },
+  {
+    "iteration": 86,
+    "showUpsellWeight": 1.2166691371265137,
+    "doNothingWeight": 0.6079820939314987
+  },
+  {
+    "iteration": 87,
+    "showUpsellWeight": 1.2923357543839835,
+    "doNothingWeight": 0.6039060030118114
+  },
+  {
+    "iteration": 88,
+    "showUpsellWeight": 1.3682281697310863,
+    "doNothingWeight": 0.5999913252925437
+  },
+  {
+    "iteration": 89,
+    "showUpsellWeight": 1.3682281697310863,
+    "doNothingWeight": 0.5999913252925437
+  },
+  {
+    "iteration": 90,
+    "showUpsellWeight": 1.399816761244532,
+    "doNothingWeight": 0.596231668810959
+  },
+  {
+    "iteration": 91,
+    "showUpsellWeight": 1.4423259231823053,
+    "doNothingWeight": 0.5926208947260451
+  },
+  {
+    "iteration": 92,
+    "showUpsellWeight": 1.47020962702319,
+    "doNothingWeight": 0.5891531072948937
+  },
+  {
+    "iteration": 93,
+    "showUpsellWeight": 1.47020962702319,
+    "doNothingWeight": 0.5891531072948937
+  },
+  {
+    "iteration": 94,
+    "showUpsellWeight": 1.47020962702319,
+    "doNothingWeight": 0.5891531072948937
+  },
+  {
+    "iteration": 95,
+    "showUpsellWeight": 1.5,
+    "doNothingWeight": 0.5858226442460159
+  },
+  {
+    "iteration": 96,
+    "showUpsellWeight": 1.5,
+    "doNothingWeight": 0.5826240675338737
+  },
+  {
+    "iteration": 97,
+    "showUpsellWeight": 1.5,
+    "doNothingWeight": 0.5826240675338737
+  },
+  {
+    "iteration": 98,
+    "showUpsellWeight": 1.5,
+    "doNothingWeight": 0.5826240675338737
+  },
+  {
+    "iteration": 99,
+    "showUpsellWeight": 1.5,
+    "doNothingWeight": 0.5795521544595323
+  }
+]

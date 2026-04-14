@@ -1,0 +1,1508 @@
+{
+  "adaptive": [
+    {
+      "iteration": 0,
+      "stepRegret": 1,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 1,
+      "stepRegret": 0,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 2,
+      "stepRegret": 0,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 3,
+      "stepRegret": 0,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 4,
+      "stepRegret": 1,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 5,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 6,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 7,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 8,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 9,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 10,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 11,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 12,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 13,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 14,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 15,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 16,
+      "stepRegret": 1,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 17,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 18,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 19,
+      "stepRegret": 1,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 20,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 21,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 22,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 23,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 24,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 25,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 26,
+      "stepRegret": 1,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 27,
+      "stepRegret": 0,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 28,
+      "stepRegret": 1,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 29,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 30,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 31,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 32,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 33,
+      "stepRegret": 1,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 34,
+      "stepRegret": 1,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 35,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 36,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 37,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 38,
+      "stepRegret": 1,
+      "cumulativeRegret": 9
+    },
+    {
+      "iteration": 39,
+      "stepRegret": 0,
+      "cumulativeRegret": 9
+    },
+    {
+      "iteration": 40,
+      "stepRegret": 1,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 41,
+      "stepRegret": 1,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 42,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 43,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 44,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 45,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 46,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 47,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 48,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 49,
+      "stepRegret": 0,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 50,
+      "stepRegret": 1,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 51,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 52,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 53,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 54,
+      "stepRegret": 1,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 55,
+      "stepRegret": 1,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 56,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 57,
+      "stepRegret": 1,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 58,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 59,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 60,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 61,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 62,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 63,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 64,
+      "stepRegret": 1,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 65,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 66,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 67,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 68,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 69,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 70,
+      "stepRegret": 1,
+      "cumulativeRegret": 17
+    },
+    {
+      "iteration": 71,
+      "stepRegret": 0,
+      "cumulativeRegret": 17
+    },
+    {
+      "iteration": 72,
+      "stepRegret": 1,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 73,
+      "stepRegret": 0,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 74,
+      "stepRegret": 0,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 75,
+      "stepRegret": 0,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 76,
+      "stepRegret": 0,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 77,
+      "stepRegret": 0,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 78,
+      "stepRegret": 1,
+      "cumulativeRegret": 19
+    },
+    {
+      "iteration": 79,
+      "stepRegret": 0,
+      "cumulativeRegret": 19
+    },
+    {
+      "iteration": 80,
+      "stepRegret": 0,
+      "cumulativeRegret": 19
+    },
+    {
+      "iteration": 81,
+      "stepRegret": 1,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 82,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 83,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 84,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 85,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 86,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 87,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 88,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 89,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 90,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 91,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 92,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 93,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 94,
+      "stepRegret": 1,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 95,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 96,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 97,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 98,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 99,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    }
+  ],
+  "greedy": [
+    {
+      "iteration": 0,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 1,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 2,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 3,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 4,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 5,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 6,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 7,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 8,
+      "stepRegret": 1,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 9,
+      "stepRegret": 1,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 10,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 11,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 12,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 13,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 14,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 15,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 16,
+      "stepRegret": 0,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 17,
+      "stepRegret": 1,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 18,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 19,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 20,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 21,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 22,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 23,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 24,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 25,
+      "stepRegret": 0,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 26,
+      "stepRegret": 1,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 27,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 28,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 29,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 30,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 31,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 32,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 33,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 34,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 35,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 36,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 37,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 38,
+      "stepRegret": 1,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 39,
+      "stepRegret": 0,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 40,
+      "stepRegret": 0,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 41,
+      "stepRegret": 0,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 42,
+      "stepRegret": 1,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 43,
+      "stepRegret": 1,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 44,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 45,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 46,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 47,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 48,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 49,
+      "stepRegret": 1,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 50,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 51,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 52,
+      "stepRegret": 1,
+      "cumulativeRegret": 9
+    },
+    {
+      "iteration": 53,
+      "stepRegret": 1,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 54,
+      "stepRegret": 0,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 55,
+      "stepRegret": 1,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 56,
+      "stepRegret": 1,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 57,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 58,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 59,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 60,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 61,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 62,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 63,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 64,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 65,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 66,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 67,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 68,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 69,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 70,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 71,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 72,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 73,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 74,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 75,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 76,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 77,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 78,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 79,
+      "stepRegret": 1,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 80,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 81,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 82,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 83,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 84,
+      "stepRegret": 1,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 85,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 86,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 87,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 88,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 89,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 90,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 91,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 92,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 93,
+      "stepRegret": 1,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 94,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 95,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 96,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 97,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 98,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 99,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    }
+  ],
+  "random": [
+    {
+      "iteration": 0,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 1,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 2,
+      "stepRegret": 0,
+      "cumulativeRegret": 0
+    },
+    {
+      "iteration": 3,
+      "stepRegret": 1,
+      "cumulativeRegret": 1
+    },
+    {
+      "iteration": 4,
+      "stepRegret": 1,
+      "cumulativeRegret": 2
+    },
+    {
+      "iteration": 5,
+      "stepRegret": 1,
+      "cumulativeRegret": 3
+    },
+    {
+      "iteration": 6,
+      "stepRegret": 1,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 7,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 8,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 9,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 10,
+      "stepRegret": 0,
+      "cumulativeRegret": 4
+    },
+    {
+      "iteration": 11,
+      "stepRegret": 1,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 12,
+      "stepRegret": 0,
+      "cumulativeRegret": 5
+    },
+    {
+      "iteration": 13,
+      "stepRegret": 1,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 14,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 15,
+      "stepRegret": 0,
+      "cumulativeRegret": 6
+    },
+    {
+      "iteration": 16,
+      "stepRegret": 1,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 17,
+      "stepRegret": 0,
+      "cumulativeRegret": 7
+    },
+    {
+      "iteration": 18,
+      "stepRegret": 1,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 19,
+      "stepRegret": 0,
+      "cumulativeRegret": 8
+    },
+    {
+      "iteration": 20,
+      "stepRegret": 1,
+      "cumulativeRegret": 9
+    },
+    {
+      "iteration": 21,
+      "stepRegret": 0,
+      "cumulativeRegret": 9
+    },
+    {
+      "iteration": 22,
+      "stepRegret": 1,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 23,
+      "stepRegret": 0,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 24,
+      "stepRegret": 0,
+      "cumulativeRegret": 10
+    },
+    {
+      "iteration": 25,
+      "stepRegret": 1,
+      "cumulativeRegret": 11
+    },
+    {
+      "iteration": 26,
+      "stepRegret": 1,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 27,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 28,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 29,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 30,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 31,
+      "stepRegret": 0,
+      "cumulativeRegret": 12
+    },
+    {
+      "iteration": 32,
+      "stepRegret": 1,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 33,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 34,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 35,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 36,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 37,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 38,
+      "stepRegret": 0,
+      "cumulativeRegret": 13
+    },
+    {
+      "iteration": 39,
+      "stepRegret": 1,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 40,
+      "stepRegret": 0,
+      "cumulativeRegret": 14
+    },
+    {
+      "iteration": 41,
+      "stepRegret": 1,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 42,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 43,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 44,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 45,
+      "stepRegret": 0,
+      "cumulativeRegret": 15
+    },
+    {
+      "iteration": 46,
+      "stepRegret": 1,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 47,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 48,
+      "stepRegret": 0,
+      "cumulativeRegret": 16
+    },
+    {
+      "iteration": 49,
+      "stepRegret": 1,
+      "cumulativeRegret": 17
+    },
+    {
+      "iteration": 50,
+      "stepRegret": 0,
+      "cumulativeRegret": 17
+    },
+    {
+      "iteration": 51,
+      "stepRegret": 0,
+      "cumulativeRegret": 17
+    },
+    {
+      "iteration": 52,
+      "stepRegret": 1,
+      "cumulativeRegret": 18
+    },
+    {
+      "iteration": 53,
+      "stepRegret": 1,
+      "cumulativeRegret": 19
+    },
+    {
+      "iteration": 54,
+      "stepRegret": 0,
+      "cumulativeRegret": 19
+    },
+    {
+      "iteration": 55,
+      "stepRegret": 1,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 56,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 57,
+      "stepRegret": 0,
+      "cumulativeRegret": 20
+    },
+    {
+      "iteration": 58,
+      "stepRegret": 1,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 59,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 60,
+      "stepRegret": 0,
+      "cumulativeRegret": 21
+    },
+    {
+      "iteration": 61,
+      "stepRegret": 1,
+      "cumulativeRegret": 22
+    },
+    {
+      "iteration": 62,
+      "stepRegret": 1,
+      "cumulativeRegret": 23
+    },
+    {
+      "iteration": 63,
+      "stepRegret": 0,
+      "cumulativeRegret": 23
+    },
+    {
+      "iteration": 64,
+      "stepRegret": 0,
+      "cumulativeRegret": 23
+    },
+    {
+      "iteration": 65,
+      "stepRegret": 1,
+      "cumulativeRegret": 24
+    },
+    {
+      "iteration": 66,
+      "stepRegret": 0,
+      "cumulativeRegret": 24
+    },
+    {
+      "iteration": 67,
+      "stepRegret": 0,
+      "cumulativeRegret": 24
+    },
+    {
+      "iteration": 68,
+      "stepRegret": 1,
+      "cumulativeRegret": 25
+    },
+    {
+      "iteration": 69,
+      "stepRegret": 1,
+      "cumulativeRegret": 26
+    },
+    {
+      "iteration": 70,
+      "stepRegret": 1,
+      "cumulativeRegret": 27
+    },
+    {
+      "iteration": 71,
+      "stepRegret": 1,
+      "cumulativeRegret": 28
+    },
+    {
+      "iteration": 72,
+      "stepRegret": 1,
+      "cumulativeRegret": 29
+    },
+    {
+      "iteration": 73,
+      "stepRegret": 0,
+      "cumulativeRegret": 29
+    },
+    {
+      "iteration": 74,
+      "stepRegret": 1,
+      "cumulativeRegret": 30
+    },
+    {
+      "iteration": 75,
+      "stepRegret": 0,
+      "cumulativeRegret": 30
+    },
+    {
+      "iteration": 76,
+      "stepRegret": 0,
+      "cumulativeRegret": 30
+    },
+    {
+      "iteration": 77,
+      "stepRegret": 1,
+      "cumulativeRegret": 31
+    },
+    {
+      "iteration": 78,
+      "stepRegret": 0,
+      "cumulativeRegret": 31
+    },
+    {
+      "iteration": 79,
+      "stepRegret": 0,
+      "cumulativeRegret": 31
+    },
+    {
+      "iteration": 80,
+      "stepRegret": 1,
+      "cumulativeRegret": 32
+    },
+    {
+      "iteration": 81,
+      "stepRegret": 0,
+      "cumulativeRegret": 32
+    },
+    {
+      "iteration": 82,
+      "stepRegret": 0,
+      "cumulativeRegret": 32
+    },
+    {
+      "iteration": 83,
+      "stepRegret": 1,
+      "cumulativeRegret": 33
+    },
+    {
+      "iteration": 84,
+      "stepRegret": 0,
+      "cumulativeRegret": 33
+    },
+    {
+      "iteration": 85,
+      "stepRegret": 1,
+      "cumulativeRegret": 34
+    },
+    {
+      "iteration": 86,
+      "stepRegret": 1,
+      "cumulativeRegret": 35
+    },
+    {
+      "iteration": 87,
+      "stepRegret": 0,
+      "cumulativeRegret": 35
+    },
+    {
+      "iteration": 88,
+      "stepRegret": 0,
+      "cumulativeRegret": 35
+    },
+    {
+      "iteration": 89,
+      "stepRegret": 0,
+      "cumulativeRegret": 35
+    },
+    {
+      "iteration": 90,
+      "stepRegret": 1,
+      "cumulativeRegret": 36
+    },
+    {
+      "iteration": 91,
+      "stepRegret": 1,
+      "cumulativeRegret": 37
+    },
+    {
+      "iteration": 92,
+      "stepRegret": 1,
+      "cumulativeRegret": 38
+    },
+    {
+      "iteration": 93,
+      "stepRegret": 0,
+      "cumulativeRegret": 38
+    },
+    {
+      "iteration": 94,
+      "stepRegret": 0,
+      "cumulativeRegret": 38
+    },
+    {
+      "iteration": 95,
+      "stepRegret": 0,
+      "cumulativeRegret": 38
+    },
+    {
+      "iteration": 96,
+      "stepRegret": 0,
+      "cumulativeRegret": 38
+    },
+    {
+      "iteration": 97,
+      "stepRegret": 1,
+      "cumulativeRegret": 39
+    },
+    {
+      "iteration": 98,
+      "stepRegret": 0,
+      "cumulativeRegret": 39
+    },
+    {
+      "iteration": 99,
+      "stepRegret": 0,
+      "cumulativeRegret": 39
+    }
+  ]
+}
