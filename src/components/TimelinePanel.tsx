@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { DecisionResult, Intervention, UserProfile } from "../stages/types";
 import { PipelineOutput } from "../core/pipeline";
-import { Card, SectionLabel } from "./ui";
 
 type Props = {
   profile: UserProfile;
@@ -12,7 +11,6 @@ type Props = {
 
 type StageEntry = {
   name: string;
-  status: "done";
   fields: Array<{ key: string; value: string }>;
 };
 
@@ -20,7 +18,6 @@ function buildStages({ profile, decision, intervention, action }: Props): StageE
   return [
     {
       name: "Context",
-      status: "done",
       fields: [
         { key: "user",    value: "user-1" },
         { key: "session", value: `session-${Date.now() % 10000}` },
@@ -28,33 +25,26 @@ function buildStages({ profile, decision, intervention, action }: Props): StageE
     },
     {
       name: "Behavior",
-      status: "done",
       fields: [
-        { key: "engagement",  value: profile.engagement.toFixed(2) },
-        { key: "churn risk",  value: profile.churnRisk.toFixed(2)  },
-        { key: "impulsivity", value: profile.impulsivity.toFixed(2) },
+        { key: "engagement", value: profile.engagement.toFixed(2) },
       ],
     },
     {
       name: "Decision",
-      status: "done",
       fields: [
-        { key: "best",    value: decision.best },
-        { key: "score",   value: (decision.ranked[0]?.score ?? 0).toFixed(4) },
-        { key: "options", value: decision.ranked.length.toString() },
+        { key: "best",       value: decision.best },
+        { key: "confidence", value: `${Math.round((decision.ranked[0]?.score ?? 0) * 100)}%` },
       ],
     },
     {
       name: "Intervention",
-      status: "done",
       fields: [
-        { key: "decision",  value: intervention.decision },
+        { key: "type",      value: intervention.decision },
         { key: "intensity", value: intervention.intensity },
       ],
     },
     {
       name: "Action",
-      status: "done",
       fields: [
         { key: "action",    value: action.action },
         { key: "intensity", value: action.intensity },
@@ -63,64 +53,53 @@ function buildStages({ profile, decision, intervention, action }: Props): StageE
   ];
 }
 
-function StageRow({ entry, index, total }: { entry: StageEntry; index: number; total: number }) {
+function StageRow({
+  entry,
+  index,
+  total,
+}: {
+  entry: StageEntry;
+  index: number;
+  total: number;
+}) {
   const [open, setOpen] = useState(false);
   const isLast = index === total - 1;
 
   return (
     <div style={{ display: "flex", gap: 0 }}>
-      {/* Track */}
-      <div style={{
-        display: "flex", flexDirection: "column", alignItems: "center",
-        width: 20, flexShrink: 0, paddingTop: 10,
-      }}>
-        <div style={{
-          width: 6, height: 6, borderRadius: "50%",
-          background: "#6366f1",
-          boxShadow: "0 0 6px rgba(99,102,241,0.5)",
-          flexShrink: 0, zIndex: 1,
-        }} />
-        {!isLast && (
-          <div style={{
-            flex: 1, width: 1,
-            background: "rgba(255,255,255,0.06)",
-            marginTop: 4, minHeight: 12,
-          }} />
-        )}
+
+      <div style={s.track}>
+        <div style={s.dot} />
+        {!isLast && <div style={s.line} />}
       </div>
 
-      {/* Content */}
       <div style={{ flex: 1, minWidth: 0, paddingBottom: isLast ? 0 : 4 }}>
         <button
           onClick={() => setOpen(o => !o)}
-          style={{
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            width: "100%", background: "none", border: "none",
-            padding: "5px 0 5px 10px", cursor: "pointer", textAlign: "left",
-          }}
+          style={s.stageBtn}
           aria-expanded={open}
         >
-          <span style={{ fontSize: 12, fontWeight: 600, color: "#e4e4e7" }}>{entry.name}</span>
+          <span style={s.stageName}>{entry.name}</span>
           <span style={{
-            fontSize: 9, color: "#3f3f46",
+            ...s.chevron,
             transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            display: "inline-block", transition: "transform 150ms ease",
           }}>
             ▾
           </span>
         </button>
 
         {open && (
-          <div style={{ padding: "2px 10px 8px" }}>
+          <div style={s.fields}>
             {entry.fields.map(({ key, value }) => (
-              <div key={key} style={{ display: "flex", justifyContent: "space-between", padding: "2px 0" }}>
-                <span style={{ fontSize: 11, color: "#52525b", fontWeight: 500 }}>{key}</span>
-                <span style={{ fontSize: 11, color: "#a1a1aa", fontFamily: "var(--font-mono)", fontWeight: 500 }}>{value}</span>
+              <div key={key} style={s.field}>
+                <span style={s.fieldKey}>{key}</span>
+                <span style={s.fieldValue}>{value}</span>
               </div>
             ))}
           </div>
         )}
       </div>
+
     </div>
   );
 }
@@ -129,11 +108,95 @@ export function TimelinePanel(props: Props) {
   const stages = buildStages(props);
 
   return (
-    <Card style={{ padding: "18px 20px" }}>
-      <SectionLabel style={{ marginBottom: 16 }}>Pipeline</SectionLabel>
-      {stages.map((entry, i) => (
-        <StageRow key={entry.name} entry={entry} index={i} total={stages.length} />
-      ))}
-    </Card>
+    <div style={s.panel}>
+      <span style={s.sectionLabel}>Pipeline</span>
+      <div>
+        {stages.map((entry, i) => (
+          <StageRow key={entry.name} entry={entry} index={i} total={stages.length} />
+        ))}
+      </div>
+    </div>
   );
 }
+
+const s: Record<string, React.CSSProperties> = {
+  panel: {
+    background: "#fcfcfd",
+    borderRadius: 14,
+    padding: "18px 18px",
+    boxShadow: "0 1px 2px rgba(15,23,42,0.06)",
+  },
+  sectionLabel: {
+    display: "block",
+    fontSize: 11,
+    fontWeight: 600,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase" as const,
+    color: "#aaa",
+    marginBottom: 14,
+  },
+  track: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: 24,
+    flexShrink: 0,
+    paddingTop: 10,
+  },
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: "50%",
+    background: "#378add",
+    flexShrink: 0,
+    zIndex: 1,
+  },
+  line: {
+    flex: 1,
+    width: 1,
+    background: "#e5e7eb",
+    marginTop: 4,
+    minHeight: 12,
+  },
+  stageBtn: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    background: "none",
+    border: "none",
+    padding: "6px 0",
+    cursor: "pointer",
+    textAlign: "left" as const,
+  },
+  stageName: {
+    fontSize: 13,
+    fontWeight: 600,
+    color: "#111",
+  },
+  chevron: {
+    fontSize: 10,
+    color: "#ccc",
+    transition: "transform 150ms ease",
+    display: "inline-block",
+  },
+  fields: {
+    paddingBottom: 8,
+  },
+  field: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "3px 0",
+  },
+  fieldKey: {
+    fontSize: 11,
+    color: "#aaa",
+    fontWeight: 500,
+  },
+  fieldValue: {
+    fontSize: 11,
+    fontFamily: "'SF Mono', 'Fira Code', 'Menlo', monospace",
+    color: "#444",
+    fontWeight: 500,
+  },
+};  
