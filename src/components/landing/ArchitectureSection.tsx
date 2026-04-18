@@ -123,7 +123,7 @@ export function ArchitectureSection() {
       <div className="arch-heading" style={{ marginBottom: 56 }}>
         <div style={{
           fontSize: 10, fontWeight: 700, letterSpacing: "0.14em",
-          textTransform: "uppercase", color: "var(--t5)", marginBottom: 14,
+          textTransform: "uppercase", color: "var(--t4)", marginBottom: 14,
         }}>
           System design
         </div>
@@ -327,7 +327,7 @@ function Label({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       fontSize: 9, fontWeight: 700, letterSpacing: "0.14em",
-      textTransform: "uppercase", color: "var(--t5)",
+      textTransform: "uppercase", color: "var(--t4)",
       marginBottom: 18,
       display: "flex", alignItems: "center", gap: 10,
     }}>

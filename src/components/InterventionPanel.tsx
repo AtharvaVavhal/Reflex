@@ -52,24 +52,24 @@ export function InterventionPanel({ intervention }: Props) {
 
       {/* Intensity */}
       <div style={{ marginBottom: 14 }}>
-        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t5)", marginBottom: 8 }}>Intensity</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ display: "flex", gap: 4 }}>
-            {STEPS.map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  width: 6, height: 6, borderRadius: "50%",
-                  background: i < filled ? color : "rgba(255,255,255,0.06)",
-                  boxShadow: i < filled && i === filled - 1 ? `0 0 6px ${color}` : "none",
-                  transition: "background 200ms",
-                }}
-              />
-            ))}
-          </div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+          <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t5)" }}>Intensity</div>
           <span style={{ fontSize: 11, fontWeight: 700, color, letterSpacing: "0.03em" }}>
             {intervention.intensity.charAt(0).toUpperCase() + intervention.intensity.slice(1)}
           </span>
+        </div>
+        <div style={{ display: "flex", gap: 3 }}>
+          {STEPS.map((_, i) => (
+            <div
+              key={i}
+              style={{
+                flex: 1, height: 4, borderRadius: 2,
+                background: i < filled ? color : "rgba(255,255,255,0.06)",
+                boxShadow: i < filled && i === filled - 1 ? `0 0 8px ${color}80` : "none",
+                transition: "background 300ms ease, box-shadow 300ms ease",
+              }}
+            />
+          ))}
         </div>
       </div>
 

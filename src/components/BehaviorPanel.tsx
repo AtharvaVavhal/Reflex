@@ -19,12 +19,12 @@ function segLabel(pct: number, invert: boolean): string {
   return          pct >= 65 ? "High" : pct <= 35 ? "Low" : "Mid";
 }
 
-function MetricRow({ label, value, invert }: Metric) {
+function MetricRow({ label, value, invert, isLast }: Metric & { isLast?: boolean }) {
   const pct   = Math.round(value * 100);
   const color = segColor(pct, invert);
 
   return (
-    <div style={{ paddingBottom: 12, marginBottom: 12, borderBottom: "1px solid var(--border)" }}>
+    <div style={{ paddingBottom: isLast ? 0 : 12, marginBottom: isLast ? 0 : 12, borderBottom: isLast ? "none" : "1px solid var(--border)" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 7 }}>
         <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--t4)" }}>
           {label}
@@ -69,17 +69,15 @@ export function BehaviorPanel({ profile }: Props) {
         <span style={{
           fontSize: 9, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
           padding: "2px 7px", borderRadius: 4,
-          background: "rgba(255,255,255,0.04)", border: "1px solid var(--border)",
-          color: "var(--t5)",
+          background: "rgba(255,255,255,0.05)", border: "1px solid var(--border-mid)",
+          color: "var(--t3)",
         }}>
           {profile.cohort.replace("_", " ")}
         </span>
       </div>
 
       {metrics.map((m, i) => (
-        <div key={m.key} style={i === metrics.length - 1 ? { borderBottom: "none" } : {}}>
-          <MetricRow {...m} />
-        </div>
+        <MetricRow key={m.key} {...m} isLast={i === metrics.length - 1} />
       ))}
     </div>
   );

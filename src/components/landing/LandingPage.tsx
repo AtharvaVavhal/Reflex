@@ -128,19 +128,31 @@ function Hero({ onLaunch }: { onLaunch: () => void }) {
           style={{
             marginTop: 64,
             display: "flex",
-            gap: 32,
+            gap: 0,
             justifyContent: "center",
             flexWrap: "wrap",
+            border: "1px solid rgba(255,255,255,0.07)",
+            borderRadius: 12,
+            overflow: "hidden",
+            background: "rgba(255,255,255,0.02)",
           }}
         >
           {[
-            { label: "Stages in pipeline", value: "5" },
-            { label: "Signal types tracked", value: "3" },
-            { label: "Strategy: UCB + ε-greedy", value: "" },
-          ].map(({ label, value }) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              {value && <div style={{ fontSize: 24, fontWeight: 700, color: "#e4e4e7", letterSpacing: "-0.03em" }}>{value}</div>}
-              <div style={{ fontSize: 12, color: "#52525b", marginTop: value ? 2 : 0 }}>{label}</div>
+            { label: "Stages", value: "5" },
+            { label: "Signal types", value: "3" },
+            { label: "Strategy", value: "UCB + ε-greedy" },
+          ].map(({ label, value }, i, arr) => (
+            <div
+              key={label}
+              style={{
+                textAlign: "center",
+                padding: "16px 32px",
+                borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                flex: "1 1 auto",
+              }}
+            >
+              <div style={{ fontSize: 20, fontWeight: 700, color: "#e4e4e7", letterSpacing: "-0.03em", lineHeight: 1.2 }}>{value}</div>
+              <div style={{ fontSize: 11, color: "#52525b", marginTop: 4, letterSpacing: "0.03em" }}>{label}</div>
             </div>
           ))}
         </div>
@@ -321,7 +333,7 @@ function HowItWorks() {
         {STEPS.map(({ n, title, body, accent }) => (
           <div
             key={n}
-            className="step-card"
+            className="step-card card-hover"
             style={{
               background: "#18181b",
               border: "1px solid rgba(255,255,255,0.07)",

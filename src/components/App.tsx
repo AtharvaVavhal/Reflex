@@ -154,14 +154,17 @@ function Dashboard({ onBack }: { onBack: () => void }) {
             onClick={onBack}
             style={{
               background: "none", border: "none", cursor: "pointer",
-              color: "var(--t5)", fontSize: 11, fontFamily: "inherit",
+              color: "var(--t4)", fontSize: 11, fontFamily: "inherit",
               display: "flex", alignItems: "center", gap: 5, padding: 0,
-              letterSpacing: "0.02em",
+              letterSpacing: "0.02em", transition: "color 120ms ease",
             }}
+            onMouseEnter={e => (e.currentTarget.style.color = "var(--t2)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "var(--t4)")}
           >
             <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
+            Back
           </button>
 
           <div style={{ width: 1, height: 14, background: "var(--border)" }} />
@@ -181,7 +184,7 @@ function Dashboard({ onBack }: { onBack: () => void }) {
               background: running ? "#f59e0b" : "#22c55e",
               animation: "pulse-live 2s ease-in-out infinite",
             }} />
-            <span style={{ fontSize: 10, color: "var(--t5)", fontFamily: "var(--font-mono)" }}>
+            <span style={{ fontSize: 10, color: "var(--t3)", fontFamily: "var(--font-mono)" }}>
               run <span ref={runRef}>{runCount.current}</span>
             </span>
           </div>
